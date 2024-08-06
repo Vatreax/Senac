@@ -1,0 +1,8 @@
+re = 2 ** 3
+re2 = 16 % 7 
+
+if re > re2:
+    print("\na) Verdadeiro\n")
+
+else:
+    print("\nFalso\n")

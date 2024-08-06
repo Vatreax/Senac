@@ -1,0 +1,11 @@
+n1 = float(input("Digite a 1°Nota: "))
+n2 = float(input("Digite a 2°Nota: "))
+n3 = float(input("Digite a 3°Nota: "))
+x = 4
+
+med1= 3/((1/(n1 + x))+(1/(n2 + x))+(1/(n3 + x))) - x
+if med1 >= 5:
+    print("\nVocê Passou, sua média é:",  round(med1,2))
+    
+elif med1 <= 5:
+    print("\nVocê Reprovou, sua média é:", round(med1,2))

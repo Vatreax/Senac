@@ -1,0 +1,8 @@
+palavra = input("\nDigite uma Palavra: ")
+vogais = ['a','e','i','o','u']
+
+print(f"\nAs vogais da palavra \"{palavra}\" são:")
+for x in palavra:
+  for z in vogais:
+    if x == z:
+        print(f"- {x}")
