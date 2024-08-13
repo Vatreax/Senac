@@ -21,5 +21,4 @@ if nome != senha:
     print("""
           
     Login Realizado com sucesso
-          
     """)
