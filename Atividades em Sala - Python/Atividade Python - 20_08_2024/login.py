@@ -33,4 +33,5 @@ confirmar_senha_entry.pack()
 cadastro_button = Button(root, text="Cadastro", command=verificar)
 cadastro_button.pack()
 
+
 root.mainloop()
