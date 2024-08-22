@@ -22,6 +22,8 @@ def nenhum():
 
 def describe_print():
     print(f"{describe_entry.get()}")
+    describe_text = Label(root,text=describe_entry.get())
+    describe_text.place(x=50,y=190)
 
 button1 = Button(root, fg="white", bg="Dark Blue", text=" Pingu ",command=Pingu)
 button1.place(x=50,y=35)
