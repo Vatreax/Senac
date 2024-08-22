@@ -1,20 +1,43 @@
 from tkinter import *
-from tkinter import PhotoImage
+from tkinter import messagebox
 
-root=Tk()
-root.title("image galery")
-root.geometry('618x500')
-root.config(bg='teal')
+def abrir_restaurante():
+    restaurante_do_ederson = Tk()
+    restaurante_do_ederson.title("Restaurante do Ederson")
+    restaurante_do_ederson.geometry('1250x650')
+    restaurante_do_ederson.mainloop()
 
-f=("chalkduster",30,'bold')
+def verificar():
+    if usuario_entry.get() == "" or senha_entry.get() == "":
+        messagebox.showerror("Login Falho", "Campo não preenchido, confira os campos de cadastro e tente novamente") 
+    elif usuario_entry.get() == senha_entry.get():
+        messagebox.showerror("Login Falho", "Usuário e Senha Não Podem Coincidir!")
+    else:
+        try:
+            messagebox.showinfo("Login Bem Sucedido", "Cadastro Realizado com Sucesso!")
+            root.destroy()  # Corrigido para usar os parênteses, que chamam a função corretamente
+            abrir_restaurante()  # Abre a nova janela
+        except Exception as e:
+            messagebox.showerror('Erro', f'Não foi possível executar o sistema: {e}')
 
-heading=Label(root,text="image galery :)", font=f)
-heading.grid(row=0,column=0)
+root = Tk()
+root.geometry("300x200")
+root.title("Login")
 
-img1=PhotoImage(file='C:\Users\RafaelMontiel\Downloads\\pingu2.png')
-img2=PhotoImage(file='file=r"C:\Users\RafaelMontiel\Downloads\\ek9de07iikf51.png')
+usuario_label = Label(root, text="Usuário:")
+usuario_label.pack()
+usuario_entry = Entry(root)
+usuario_entry.pack()
+usuario_entry.place(x=90,y=25)
 
-img1.grid(row=1,column=1)
-img2.grid(row=1,column=1)
+senha_label = Label(root, text="Senha:")
+senha_label.pack()
+senha_entry = Entry(root, show="*")
+senha_entry.pack()
+senha_entry.place(x=90,y=70)
+senha_label.place(x=90,y=65)
 
-root.mainloop
+cadastro_button = Button(root, text="Cadastro", command=verificar)
+cadastro_button.pack()
+cadastro_button.place(x=120,y=95)
+root.mainloop()
