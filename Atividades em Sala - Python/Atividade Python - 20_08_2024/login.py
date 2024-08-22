@@ -2,14 +2,14 @@ from tkinter import *
 from tkinter import messagebox
 
 def verificar():
-    if usuario_entry.get() == "tafarildo" and senha_entry.get() == "1234":
-        messagebox.showinfo("Cadastro Bem Sucedido", "Cadastro Realizado com Sucesso!")
+    if usuario_entry.get() == "" and senha_entry.get() == "":
+       messagebox.showerror("Cadastro Falho", "Campo não preenchido, confira os campos de cadastro e tente novamente") 
     elif confirmar_senha_entry.get() != senha_entry.get():
         messagebox.showerror("Cadastro Falho", "Senhas Não Coincidem!!")
     elif usuario_entry.get() == senha_entry.get():
         messagebox.showerror("Cadastro Falho","Usuário e Senha Não Podem Coincidir!")
     else:
-        messagebox.showerror("Cadastro Falho", "Campo não preenchido, confira os campos de cadastro e tente novamente")
+        messagebox.showinfo("Cadastro Bem Sucedido", "Cadastro Realizado com Sucesso!")
 
 root = Tk()
 root.geometry("300x200")
