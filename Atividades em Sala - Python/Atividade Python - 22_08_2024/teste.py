@@ -3,6 +3,7 @@ from tkinter import ttk
 
 restaurante_do_ederson = tk.Tk()
 restaurante_do_ederson.resizable(False, False)
+restaurante_do_ederson.geometry('600x300')
 restaurante_do_ederson.title("Restaurante do Ederson")
 
 # apply the grid layout
@@ -23,6 +24,6 @@ text['yscrollcommand'] = scrollbar.set
 # add sample text to the text widget to show the screen
 for i in range(1,50):
     position = f'{i}.0'
-    text.insert(position,f'Line {i}\n');
+    text.insert(position,f'Lanche {i}\n');
 
 restaurante_do_ederson.mainloop()

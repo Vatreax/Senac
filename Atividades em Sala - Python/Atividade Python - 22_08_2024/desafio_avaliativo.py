@@ -1,14 +1,23 @@
 from tkinter import *
 from tkinter import messagebox
 
+def darkmode():
+    restaurante_do_ederson.config(bg='black')
+    
 def abrir_restaurante():
+    global restaurante_do_ederson
     restaurante_do_ederson = Tk()
     restaurante_do_ederson.title("Restaurante do Ederson")
+
+
+    button1 = Button(root, fg="white", bg="black", text="Dark",command=darkmode)
+    button1.place(x=1750,y=950)
     restaurante_do_ederson.geometry('1800x1000')
-    restaurante_do_ederson.config(bg='black')
+
 
 
     restaurante_do_ederson.mainloop()
+
 
 
 
@@ -21,9 +30,8 @@ def verificar():
     else:
         try:
             messagebox.showinfo("Login Bem Sucedido", "Cadastro Realizado com Sucesso!")
-            root.destroy()  # Corrigido para usar os parênteses, que chamam a função corretamente
-            abrir_restaurante()  # Abre a nova janela
-
+            root.destroy()
+            abrir_restaurante()
 
         except Exception:
             messagebox.showerror('Erro', f'Não foi possível executar o sistema')
