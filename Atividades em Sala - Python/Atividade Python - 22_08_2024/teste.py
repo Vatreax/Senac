@@ -1,43 +1,28 @@
-from tkinter import *
-from tkinter import messagebox
+import tkinter as tk
+from tkinter import ttk
 
-def abrir_restaurante():
-    restaurante_do_ederson = Tk()
-    restaurante_do_ederson.title("Restaurante do Ederson")
-    restaurante_do_ederson.geometry('1250x650')
-    restaurante_do_ederson.mainloop()
+restaurante_do_ederson = tk.Tk()
+restaurante_do_ederson.resizable(False, False)
+restaurante_do_ederson.title("Restaurante do Ederson")
 
-def verificar():
-    if usuario_entry.get() == "" or senha_entry.get() == "":
-        messagebox.showerror("Login Falho", "Campo não preenchido, confira os campos de cadastro e tente novamente") 
-    elif usuario_entry.get() == senha_entry.get():
-        messagebox.showerror("Login Falho", "Usuário e Senha Não Podem Coincidir!")
-    else:
-        try:
-            messagebox.showinfo("Login Bem Sucedido", "Cadastro Realizado com Sucesso!")
-            root.destroy()  # Corrigido para usar os parênteses, que chamam a função corretamente
-            abrir_restaurante()  # Abre a nova janela
-        except Exception as e:
-            messagebox.showerror('Erro', f'Não foi possível executar o sistema: {e}')
+# apply the grid layout
+restaurante_do_ederson.grid_columnconfigure(0, weight=5)
+restaurante_do_ederson.grid_rowconfigure(0, weight=5)
 
-root = Tk()
-root.geometry("300x200")
-root.title("Login")
+# create the text widget
+text = tk.Text(restaurante_do_ederson, height=10)
+text.grid(row=0, column=0, sticky=tk.EW)
 
-usuario_label = Label(root, text="Usuário:")
-usuario_label.pack()
-usuario_entry = Entry(root)
-usuario_entry.pack()
-usuario_entry.place(x=90,y=25)
+# create a scrollbar widget and set its command to the text widget
+scrollbar = ttk.Scrollbar(restaurante_do_ederson, orient='vertical', command=text.yview)
+scrollbar.grid(row=0, column=1, sticky=tk.NS)
 
-senha_label = Label(root, text="Senha:")
-senha_label.pack()
-senha_entry = Entry(root, show="*")
-senha_entry.pack()
-senha_entry.place(x=90,y=70)
-senha_label.place(x=90,y=65)
+#  communicate back to the scrollbar
+text['yscrollcommand'] = scrollbar.set
 
-cadastro_button = Button(root, text="Cadastro", command=verificar)
-cadastro_button.pack()
-cadastro_button.place(x=120,y=95)
-root.mainloop()
+# add sample text to the text widget to show the screen
+for i in range(1,50):
+    position = f'{i}.0'
+    text.insert(position,f'Line {i}\n');
+
+restaurante_do_ederson.mainloop()
