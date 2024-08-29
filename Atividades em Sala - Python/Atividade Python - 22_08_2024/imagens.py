@@ -7,7 +7,7 @@ root.geometry('650x550')
 
 def Pingu():
     global img, img_label
-    img = PhotoImage(file=r"C:\Users\RafaelMontiel\Downloads\\pingu2.png")
+    img = PhotoImage(file=r"C:\Users\RafaelMontiel\Downloads\\pingu.jpg")
     img_label = Label(root, image=img).place(x=300,y=125)
 
 def Moyai():

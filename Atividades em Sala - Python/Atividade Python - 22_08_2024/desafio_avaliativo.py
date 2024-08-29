@@ -2,88 +2,94 @@ from tkinter import *
 from tkinter import messagebox
 
 #--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
+def voltar1():
+        abrir_bebidas.withdraw()
+        restaurante_do_ederson()
+
 def bebidas():
     global abrir_bebidas
     abrir_bebidas = Toplevel()
     abrir_bebidas.title("Restaurante do Ederson - Bebidas")
-    abrir_bebidas.geometry('1800x900')
+    button_v = Button(bebidas, fg="white", bg="black", text="Fechar",command=voltar1)
+    button_v.place(x=900,y=450)
+    abrir_bebidas.geometry('1920x1080')
 
     abrir_bebidas.mainloop()
 #--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
 def voltar2():
-    try:
-        bebidas_alc.withdraw()
-        restaurante_do_ederson()
-    
-    except Exception:
-        messagebox.showerror("Erro","Não foi possivel abrir o sistema")
+    bebidas_alc.withdraw()
+    restaurante_do_ederson()
+
 
 def bebidas_alcool():
     global bebidas_alc
     bebidas_alc = Toplevel()
     bebidas_alc.title("Restaurante do Ederson - Bebidas Alcoólicas")
-    bebidas_alc.geometry('1800x900')
+    bebidas_alc.geometry('1920x1080')
 
-    button_bob = Button(bebidas_alc, fg="white", bg="black", text="Fechar",command=voltar2)
-    button_bob.place(x=900,y=450)
+    button_vo = Button(bebidas_alc, fg="white", bg="black", text="Fechar",command=voltar2)
+    button_vo.place(x=900,y=450)
 
     bebidas_alc.mainloop()
 #--------------------------------------------  Bebidas Alcoólicas  ---------------------------------------------------------------------------------------------------#
 
 #--------------------------------------------  Entrada  --------------------------------------------------------------------------------------------------------------#
+
+def voltar3():
+    entrada.withdraw()
+    restaurante_do_ederson()
+
 def entrada():
     global entrada
     entradinha = Toplevel()
     entradinha.title("Restaurante do Ederson - Entrada")
-    entradinha.geometry('1800x900')
+    entradinha.geometry('1920x1080')
+
+    button_vol = Button(entradinha, fg="white", bg="black", text="Fechar",command=voltar3)
+    button_vol.place(x=900,y=450)
 
     entradinha.mainloop()
 #--------------------------------------------  Entrada  --------------------------------------------------------------------------------------------------------------#
 
 #--------------------------------------------  Escolha da Casa  ------------------------------------------------------------------------------------------------------#
+
+def voltar4():
+        escolha_da_casa.withdraw()
+        restaurante_do_ederson()
+
+
 def escolha():
     global escolha_da_casa
     escolha_da_casa = Toplevel()
     escolha_da_casa.title("Restaurante do Ederson - Escolha da Casa")
-    escolha_da_casa.geometry('1800x900')
+    escolha_da_casa.geometry('1920x1080')
+
+    button_volt = Button(escolha_da_casa, fg="white", bg="black", text="Fechar",command=voltar4)
+    button_volt.place(x=900,y=450)
 
     escolha_da_casa.mainloop()
 #--------------------------------------------  Escolha da Casa  ------------------------------------------------------------------------------------------------------#
 
 #--------------------------------------------  Restaurante do Ederson  -----------------------------------------------------------------------------------------------#
 def ver_bebidas():
-    try:
-        restaurante_do_ederson.withdraw()
-        abrir_bebidas()
-    except Exception:
-        messagebox.showerror("Erro","Não foi possivel abrir o sistema")
+    abrir_bebidas()
 
 def ver_alcool():
-    try:
-        restaurante_do_ederson.withdraw()
-        bebidas_alcool()
-    except Exception:
-        messagebox.showerror("Erro","Não foi possivel abrir o sistema")
+    bebidas_alcool()
 
 def ver_entrada():
-    try:
-        restaurante_do_ederson.withdraw()
-        entrada()
-    except Exception:
-        messagebox.showerror("Erro","Não foi possivel abrir o sistema")
+    entrada()
 
 def ver_escolha_da_casa():
-    try:
-        restaurante_do_ederson.withdraw()
-        escolha()
-    except Exception:
-        messagebox.showerror("Erro","Não foi possivel abrir o sistema")
+    escolha()
+
 
 def abrir_restaurante():
     global restaurante_do_ederson
     restaurante_do_ederson = Tk()
     restaurante_do_ederson.title("Restaurante do Ederson")
-    restaurante_do_ederson.geometry('1800x900')
+    restaurante_do_ederson.geometry('1920x1080')
+    restaurante_do_ederson.config(bg='red')
 
     texto = Label(restaurante_do_ederson, text=f"Bem Vindo {text_user}, ao Restaurante do Ederson!")
     texto.place(x=10,y=100)
