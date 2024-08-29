@@ -1,29 +1,24 @@
 import tkinter as tk
-from tkinter import ttk
 
-restaurante_do_ederson = tk.Tk()
-restaurante_do_ederson.resizable(False, False)
-restaurante_do_ederson.geometry('600x300')
-restaurante_do_ederson.title("Restaurante do Ederson")
+# Create a Tkinter window
+window = tk.Tk()
+window.title("Getting Textvariable from Entry")
 
-# apply the grid layout
-restaurante_do_ederson.grid_columnconfigure(0, weight=5)
-restaurante_do_ederson.grid_rowconfigure(0, weight=5)
+# Create a textvariable
+text_variable = tk.StringVar()
 
-# create the text widget
-text = tk.Text(restaurante_do_ederson, height=10)
-text.grid(row=0, column=0, sticky=tk.EW)
+# Create an Entry widget associated with the textvariable
+entry = tk.Entry(window, textvariable=text_variable)
+entry.pack()
 
-# create a scrollbar widget and set its command to the text widget
-scrollbar = ttk.Scrollbar(restaurante_do_ederson, orient='vertical', command=text.yview)
-scrollbar.grid(row=0, column=1, sticky=tk.NS)
+def retrieve_text():
+   # Retrieve the text from the textvariable
+   entered_text = text_variable.get()
+   print("Entered text:", entered_text)
 
-#  communicate back to the scrollbar
-text['yscrollcommand'] = scrollbar.set
+# Create a button to trigger text retrieval
+button = tk.Button(window, text="Retrieve Text", command=retrieve_text)
+button.pack()
 
-# add sample text to the text widget to show the screen
-for i in range(1,50):
-    position = f'{i}.0'
-    text.insert(position,f'Lanche {i}\n');
-
-restaurante_do_ederson.mainloop()
+# Run the Tkinter event loop
+window.mainloop()
