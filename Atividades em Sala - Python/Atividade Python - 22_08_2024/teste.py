@@ -1,24 +1,47 @@
-import tkinter as tk
+from tkinter import *
 
-# Create a Tkinter window
-window = tk.Tk()
-window.title("Getting Textvariable from Entry")
+def ver_bebidas():
+    pass
 
-# Create a textvariable
-text_variable = tk.StringVar()
+def ver_alcool():
+    pass
 
-# Create an Entry widget associated with the textvariable
-entry = tk.Entry(window, textvariable=text_variable)
-entry.pack()
+def ver_entrada():
+    pass
 
-def retrieve_text():
-   # Retrieve the text from the textvariable
-   entered_text = text_variable.get()
-   print("Entered text:", entered_text)
+def ver_escolha_da_casa():
+    pass
 
-# Create a button to trigger text retrieval
-button = tk.Button(window, text="Retrieve Text", command=retrieve_text)
-button.pack()
+def ver_doces():
+    pass
 
-# Run the Tkinter event loop
-window.mainloop()
+global restaurante_do_ederson
+restaurante_do_ederson = Tk()
+restaurante_do_ederson.title("Restaurante do Ederson")
+restaurante_do_ederson.geometry('1920x1080')
+restaurante_do_ederson.config(bg='red')
+
+texto = Label(restaurante_do_ederson, text="Bem Vindo ao Restaurante do Ederson!", bg='red', fg='white')
+texto.pack(pady=20)
+
+# Criar um frame para conter os botões
+frame_buttons = Frame(restaurante_do_ederson, bg='red')
+frame_buttons.pack(expand=True)
+
+# Configurar o tamanho e centralizar os botões
+button_beb = Button(frame_buttons, fg="white", bg="black", text="Bebidas", command=ver_bebidas, width=15, height=3)
+button_beb.pack(pady=10)
+
+button_alco = Button(frame_buttons, fg="white", bg="black", text="Bebidas Alcoólicas", command=ver_alcool, width=15, height=3)
+button_alco.pack(pady=10)
+
+button_ent = Button(frame_buttons, fg="white", bg="black", text="Entrada", command=ver_entrada, width=15, height=3)
+button_ent.pack(pady=10)
+
+button_esc = Button(frame_buttons, fg="white", bg="black", text="Escolha da Casa", command=ver_escolha_da_casa, width=15, height=3)
+button_esc.pack(pady=10)
+
+button_doc = Button(frame_buttons, fg="white", bg="black", text="Doces", command=ver_doces, width=15, height=3)
+button_doc.pack(pady=10)
+
+restaurante_do_ederson.mainloop()

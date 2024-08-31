@@ -54,8 +54,8 @@ def entrada():
 #--------------------------------------------  Escolha da Casa  ------------------------------------------------------------------------------------------------------#
 
 def voltar4():
-        escolha_da_casa.withdraw()
-        restaurante_do_ederson()
+    escolha_da_casa.withdraw()
+    restaurante_do_ederson()
 
 
 def escolha():
@@ -70,6 +70,23 @@ def escolha():
     escolha_da_casa.mainloop()
 #--------------------------------------------  Escolha da Casa  ------------------------------------------------------------------------------------------------------#
 
+#--------------------------------------------  Doces  ----------------------------------------------------------------------------------------------------------------#
+def voltar5():
+    doces.withdraw()
+    restaurante_do_ederson()
+
+def doces():
+    global doces
+    doces = Toplevel()
+    doces.title("Restaurante do Ederson - Doces")
+    doces.geometry('1920x1080')
+
+    button_volta = Button(doces, fg="white", bg="black", text="Fechar",command=voltar4)
+    button_volta.place(x=900,y=450)
+
+    doces.mainloop()
+#--------------------------------------------  Doces  ----------------------------------------------------------------------------------------------------------------#
+
 #--------------------------------------------  Restaurante do Ederson  -----------------------------------------------------------------------------------------------#
 def ver_bebidas():
     abrir_bebidas()
@@ -83,30 +100,33 @@ def ver_entrada():
 def ver_escolha_da_casa():
     escolha()
 
+def ver_doces():
+    doces()
 
 def abrir_restaurante():
     global restaurante_do_ederson
     restaurante_do_ederson = Tk()
     restaurante_do_ederson.title("Restaurante do Ederson")
-    restaurante_do_ederson.geometry('1920x1080')
-    restaurante_do_ederson.config(bg='red')
+    restaurante_do_ederson.geometry('1000x800')
+    restaurante_do_ederson.config(bg='cyan')
 
     texto = Label(restaurante_do_ederson, text=f"Bem Vindo {text_user}, ao Restaurante do Ederson!")
     texto.place(x=10,y=100)
 
-    button_beb = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas",command=ver_bebidas)
-    button_beb.place(x=900,y=450)
+    button_beb = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas", width=15,height=3, command=ver_bebidas)
+    button_beb.place(x=500,y=300)
 
-    button_alco = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas Alcoólicas",command=ver_alcool)
-    button_alco.place(x=900,y=350)
-    
-    button_ent = Button(restaurante_do_ederson, fg="white", bg="black", text="Entrada",command=ver_entrada)
-    button_ent.place(x=900,y=250)
-    
-    button_esc = Button(restaurante_do_ederson, fg="white", bg="black", text="Escolha",command=ver_escolha_da_casa)
-    button_esc.place(x=900,y=150)
+    button_alco = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas Alcoólicas", width=15, height=3, command=ver_alcool)
+    button_alco.place(x=500,y=250)
 
+    button_ent = Button(restaurante_do_ederson, fg="white", bg="black", text="Entrada", width=15, height=3, command=ver_entrada)
+    button_ent.place(x=500,y=200)
 
+    button_esc = Button(restaurante_do_ederson, fg="white", bg="black", text="Escolha da Casa", width=15, height=3, command=ver_escolha_da_casa)
+    button_esc.place(x=500,y=150)
+
+    button_doc = Button(restaurante_do_ederson, fg="white", bg="black", text="Doces", width=15, height=3, command=ver_doces)
+    button_doc.place(x=500,y=100)
 
     restaurante_do_ederson.mainloop()
 #--------------------------------------------  Restaurante do Ederson  ---------------------------------------------------------------------------------------------#
