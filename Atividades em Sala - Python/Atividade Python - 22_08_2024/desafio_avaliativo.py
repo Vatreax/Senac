@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from PIL import Image,ImageTk
 
 #--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
 def voltar1():
@@ -10,10 +11,20 @@ def bebidas():
     global abrir_bebidas
     abrir_bebidas = Toplevel()
     abrir_bebidas.title("Restaurante do Ederson - Bebidas")
-    button_v = Button(bebidas, fg="white", bg="black", text="Fechar",command=voltar1)
-    button_v.place(x=900,y=450)
     abrir_bebidas.geometry('1920x1080')
+    
+    button_v = Button(abrir_bebidas, fg="white", bg="black", text="Fechar",command=voltar1)
+    button_v.place(x=900,y=450)
+    
+    img_beb1 = PhotoImage(file=r"c:\Users\RafaelMontiel\Documents\imagens\bebidas\\agua_de_coco.png")
+    imgb1_label = Label(abrir_bebidas, image=img_beb1).place(x=10,y=10)
 
+    img_beb2 = PhotoImage(file=r"c:\Users\RafaelMontiel\Documents\imagens\bebidas\\água_tônica.png")
+    imgb2_label = Label(abrir_bebidas, image=img_beb2).place(x=100,y=190)
+    
+    img_beb3 = PhotoImage(file=r"c:\Users\RafaelMontiel\Documents\imagens\bebidas\\suquinho.png")
+    imgb3_label = Label(abrir_bebidas, image=img_beb3).place(x=200,y=200)
+    
     abrir_bebidas.mainloop()
 #--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
 def voltar2():
@@ -41,14 +52,14 @@ def voltar3():
 
 def entrada():
     global entrada
-    entradinha = Toplevel()
-    entradinha.title("Restaurante do Ederson - Entrada")
-    entradinha.geometry('1920x1080')
+    entrada = Toplevel()
+    entrada.title("Restaurante do Ederson - Entrada")
+    entrada.geometry('1920x1080')
 
-    button_vol = Button(entradinha, fg="white", bg="black", text="Fechar",command=voltar3)
+    button_vol = Button(entrada, fg="white", bg="black", text="Fechar",command=voltar3)
     button_vol.place(x=900,y=450)
 
-    entradinha.mainloop()
+    entrada.mainloop()
 #--------------------------------------------  Entrada  --------------------------------------------------------------------------------------------------------------#
 
 #--------------------------------------------  Escolha da Casa  ------------------------------------------------------------------------------------------------------#
@@ -89,7 +100,7 @@ def doces():
 
 #--------------------------------------------  Restaurante do Ederson  -----------------------------------------------------------------------------------------------#
 def ver_bebidas():
-    abrir_bebidas()
+    bebidas()
 
 def ver_alcool():
     bebidas_alcool()
