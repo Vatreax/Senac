@@ -17,7 +17,7 @@ def bebidas():
     button_v.place(x=900,y=450)
     
     img_beb1 = PhotoImage(file=r"c:\Users\RafaelMontiel\Documents\imagens\bebidas\\agua_de_coco.png")
-    imgb1_label = Label(abrir_bebidas, image=img_beb1).place(x=10,y=10)
+    imgb1_label = Label(abrir_bebidas, image=img_beb1).place(x=10,y=10).resize((1000,1000), Image.ANTIALIAS)
 
     img_beb2 = PhotoImage(file=r"c:\Users\RafaelMontiel\Documents\imagens\bebidas\\água_tônica.png")
     imgb2_label = Label(abrir_bebidas, image=img_beb2).place(x=100,y=190)
@@ -119,25 +119,29 @@ def abrir_restaurante():
     restaurante_do_ederson = Tk()
     restaurante_do_ederson.title("Restaurante do Ederson")
     restaurante_do_ederson.geometry('1000x800')
-    restaurante_do_ederson.config(bg='cyan')
+    restaurante_do_ederson.config(bg='blue')
 
-    texto = Label(restaurante_do_ederson, text=f"Bem Vindo {text_user}, ao Restaurante do Ederson!")
-    texto.place(x=10,y=100)
+    frame_buttons = Frame(restaurante_do_ederson, bg='white').place(x=475,y=400)
 
-    button_beb = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas", width=15,height=3, command=ver_bebidas)
-    button_beb.place(x=500,y=300)
+    #frame_buttons.pack(expand=True)
 
-    button_alco = Button(restaurante_do_ederson, fg="white", bg="black", text="Bebidas Alcoólicas", width=15, height=3, command=ver_alcool)
-    button_alco.place(x=500,y=250)
+    texto = Label(frame_buttons, text=f"Bem Vindo {text_user}, ao Restaurante do Ederson!")
+    #texto.place(x=10,y=100)
 
-    button_ent = Button(restaurante_do_ederson, fg="white", bg="black", text="Entrada", width=15, height=3, command=ver_entrada)
-    button_ent.place(x=500,y=200)
+    button_beb = Button(frame_buttons, fg="white", bg="black", text="Bebidas", width=15,height=3, command=ver_bebidas)
+    #button_beb.place(x=500,y=300)
 
-    button_esc = Button(restaurante_do_ederson, fg="white", bg="black", text="Escolha da Casa", width=15, height=3, command=ver_escolha_da_casa)
-    button_esc.place(x=500,y=150)
+    button_alco = Button(frame_buttons, fg="white", bg="black", text="Bebidas Alcoólicas", width=15, height=3, command=ver_alcool)
+    #button_alco.place(x=500,y=250)
 
-    button_doc = Button(restaurante_do_ederson, fg="white", bg="black", text="Doces", width=15, height=3, command=ver_doces)
-    button_doc.place(x=500,y=100)
+    button_ent = Button(frame_buttons, fg="white", bg="black", text="Entrada", width=15, height=3, command=ver_entrada)
+    #button_ent.place(x=500,y=200)
+
+    button_esc = Button(frame_buttons, fg="white", bg="black", text="Escolha da Casa", width=15, height=3, command=ver_escolha_da_casa)
+    #button_esc.place(x=500,y=150)
+
+    button_doc = Button(frame_buttons, fg="white", bg="black", text="Doces", width=15, height=3, command=ver_doces)
+    #button_doc.place(x=500,y=100)
 
     restaurante_do_ederson.mainloop()
 #--------------------------------------------  Restaurante do Ederson  ---------------------------------------------------------------------------------------------#

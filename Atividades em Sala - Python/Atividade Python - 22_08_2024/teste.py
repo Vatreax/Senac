@@ -25,7 +25,7 @@ texto = Label(restaurante_do_ederson, text="Bem Vindo ao Restaurante do Ederson!
 texto.pack(pady=20)
 
 # Criar um frame para conter os botões
-frame_buttons = Frame(restaurante_do_ederson, bg='red')
+frame_buttons = Frame(restaurante_do_ederson, bg='white')
 frame_buttons.pack(expand=True)
 
 # Configurar o tamanho e centralizar os botões
