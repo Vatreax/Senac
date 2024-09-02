@@ -1,32 +1,19 @@
 from tkinter import *
-from tkinter import PhotoImage
-# Create object  
-root = Tk() 
-  
-# Adjust size  
-root.geometry("400x400") 
-  
-# Add image file 
-bg = PhotoImage(file = r"c:\Users\Rafael Montiel\Downloads\unnamed-8.png") 
-  
-# Show image using label 
-label1 = Label( root, image = bg) 
-label1.place(x = 0, y = 0) 
-  
-label2 = Label( root, text = "Welcome") 
-label2.pack(pady = 50) 
-  
-# Create Frame 
-frame1 = Frame(root) 
-frame1.pack(pady = 20 ) 
-  
-# Add buttons 
-button1 = Button(frame1,text="Exit") 
-button1.pack(pady=20) 
-  
-button2 = Button( frame1, text = "Start") 
-button2.pack(pady = 20) 
-  
-button3 = Button( frame1, text = "Reset") 
-button3.pack(pady = 20) 
-  
+from tkinter import ttk
+
+n1 = 0
+def contador():
+    global n1
+    n1 +=1
+    print(n1)
+    n3.config (text=f"Clique em Mim! {n1}")
+
+
+root = Tk()
+frm = ttk.Frame(root, padding=100)
+frm.grid()
+ttk.Label(frm, text=f"Clique no Botão :D     ",font='ariel 20').grid(column=0, row=0)
+n1 = 0
+n3 = ttk.Button(frm, text=f"Clique em Mim! {n1}", command=contador)
+n3.grid(column=0, row=2)
+root.mainloop()
