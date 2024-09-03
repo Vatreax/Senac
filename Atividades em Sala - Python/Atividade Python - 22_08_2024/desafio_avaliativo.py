@@ -2,33 +2,151 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image,ImageTk
 
-#--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
-def voltar1():
-        abrir_bebidas.withdraw()
-        restaurante_do_ederson()
+lista_bebidas = {
+    'Água de Coco': {'quantidade': 0, 'preço_unitário': 10},
+    'Água Tônica': {'quantidade': 0, 'preço_unitário': 8},
+    'Sucos': {'quantidade': 0, 'preço_unitário': 5}
+}
 
-def bebidas():
-    global abrir_bebidas
-    abrir_bebidas = Toplevel()
-    abrir_bebidas.title("Restaurante do Ederson - Bebidas")
-    abrir_bebidas.geometry('900x500')
+#lista_alcool = []
+#lista_entrada = []
+#lista_principal = []
+#lista_chefe = []
+#lista_doce = []
+#contatinhos.update({ad:ad_num})
+#--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
+def converter_para_inteiro(s):
+    try:
+        return int(s)
+    except ValueError:
+        return None
+
+def validar_e_converter():
+    global quantidade_bebidas1, quantidade_bebidas2, quantidade_bebidas3, lista_bebidas
+    quantidade_bebidas1 = quantidade_bebidas1_var.get()
+    quantidade_bebidas2 = quantidade_bebidas2_var.get()
+    quantidade_bebidas3 = quantidade_bebidas3_var.get()
+
+    if quantidade_bebidas1 == "" and quantidade_bebidas2 == "" and quantidade_bebidas3 == "":
+        messagebox.showinfo("Aviso","Todos os campos estão VAZIOS.")
+        return
+
+    numero_bebidas1 = converter_para_inteiro(quantidade_bebidas1)
+    numero_bebidas2 = converter_para_inteiro(quantidade_bebidas2)
+    numero_bebidas3 = converter_para_inteiro(quantidade_bebidas3)
+
+    if numero_bebidas1 != None  and numero_bebidas1 < 0 or numero_bebidas2 != None and numero_bebidas2 < 0 or numero_bebidas3 != None and numero_bebidas3 < 0 :
+        messagebox.showerror("Erro", "Por favor, insira apenas números maiores que zero.")
     
+    if numero_bebidas1 is None and numero_bebidas2 is None and numero_bebidas3 is None:
+        messagebox.showerror("Erro", "Por favor, insira apenas números inteiros válidos.")
+    else:
+        lista_bebidas['Água de Coco']['quantidade'] = numero_bebidas1
+        lista_bebidas['Água Tônica']['quantidade'] = numero_bebidas2
+        lista_bebidas['Sucos']['quantidade'] = numero_bebidas3
+
+        total_bebida1 = lista_bebidas['Água de Coco']['quantidade'] * lista_bebidas['Água de Coco']['preço_unitário']
+        total_bebida2 = lista_bebidas['Água Tônica']['quantidade'] * lista_bebidas['Água Tônica']['preço_unitário']
+        total_bebida3 = lista_bebidas['Sucos']['quantidade'] * lista_bebidas['Sucos']['preço_unitário']
+
+        print(lista_bebidas)
+
+        messagebox.showinfo("Compras Confirmadas",
+                            f"Água de Coco: R$ {total_bebida1}\n"
+                            f"Água Tônica: R$ {total_bebida2}\n"
+                            f"Sucos: R$ {total_bebida3}")
+
+def voltar1():
+    abrir_bebidas.withdraw()
+    restaurante_do_ederson()
+
+def abrir_bebidas():
+    global bebidas
+    bebidas = Toplevel()
+    bebidas.title("Restaurante do Ederson - Bebidas")
+    bebidas.geometry('1200x800')
+
+    # ---- Background + Variáveis ---- #
     imagem_bg1 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\refrescos.jpg"
     bg_imagem1 = Image.open(imagem_bg1)
 
-    screen_width1= abrir_bebidas.winfo_screenwidth()
-    screen_height1 = abrir_bebidas.winfo_screenheight()
+    screen_width1 = bebidas.winfo_screenwidth()
+    screen_height1 = bebidas.winfo_screenheight()
     bg_imagem1 = bg_imagem1.resize((screen_width1, screen_height1), Image.Resampling.LANCZOS)
 
     bg_image_tk = ImageTk.PhotoImage(bg_imagem1)
 
-    bg_label1 = Label(abrir_bebidas, image=bg_image_tk)
+    bg_label1 = Label(bebidas, image=bg_image_tk)
     bg_label1.place(relx=0, rely=0, relwidth=1, relheight=1)
-    
-    frame_bebidas = Frame(abrir_bebidas, bg='white', width=500, height=400)
-    frame_bebidas.place(relx=0.5, rely=0.5, anchor='center')
 
-    abrir_bebidas.mainloop()
+    global quantidade_bebidas1_var, quantidade_bebidas2_var, quantidade_bebidas3_var
+
+    quantidade_bebidas1_var = StringVar()
+    quantidade_bebidas2_var = StringVar()
+    quantidade_bebidas3_var = StringVar()
+
+    # ---- Primeira Bebida ---- #
+    frame_bebida1 = Frame(bebidas, bg='white', width=900, height=450)
+    frame_bebida1.place(relx=0.25, rely=0.35, anchor='center')
+
+    imagem_bebida1 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas\\agua_de_coco.png"
+    bebida_image1 = Image.open(imagem_bebida1)
+    bebida_image1 = bebida_image1.resize((200, 200), Image.Resampling.LANCZOS)
+    bebida_image1_tk = ImageTk.PhotoImage(bebida_image1)
+    img_bebida1 = Label(frame_bebida1, image=bebida_image1_tk, bg='white')
+    img_bebida1.image = bebida_image1_tk
+    img_bebida1.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_bebida1, text="Água de Coco", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida1, text="R$ 10,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida1, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_bebida1, width=10, textvariable=quantidade_bebidas1_var).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Segunda Bebida ---- #
+    frame_bebida2 = Frame(bebidas, bg='white', width=900, height=450)
+    frame_bebida2.place(relx=0.50, rely=0.35, anchor='center')
+
+    imagem_bebida2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas\\água_tônica.png"
+    bebida_image2 = Image.open(imagem_bebida2)
+    bebida_image2 = bebida_image2.resize((200, 200), Image.Resampling.LANCZOS)
+    bebida_image2_tk = ImageTk.PhotoImage(bebida_image2)
+    img_bebida2 = Label(frame_bebida2, image=bebida_image2_tk, bg='white')
+    img_bebida2.image = bebida_image2_tk
+    img_bebida2.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_bebida2, text="Água Tônica", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida2, text="R$ 8,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida2, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_bebida2, width=10, textvariable=quantidade_bebidas2_var).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Terceira Bebida ---- #
+    frame_bebida3 = Frame(bebidas, bg='white', width=900, height=450)
+    frame_bebida3.place(relx=0.75, rely=0.35, anchor='center')
+
+    imagem_bebida3 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas\\suquinho.png"
+    bebida_image3 = Image.open(imagem_bebida3)
+    bebida_image3 = bebida_image3.resize((200, 200), Image.Resampling.LANCZOS)
+    bebida_image3_tk = ImageTk.PhotoImage(bebida_image3)
+    img_bebida3 = Label(frame_bebida3, image=bebida_image3_tk, bg='white')
+    img_bebida3.image = bebida_image3_tk
+    img_bebida3.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_bebida3, text="Sucos", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida3, text="R$ 5,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_bebida3, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_bebida3, width=10, textvariable=quantidade_bebidas3_var).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Botão Validar ---- #
+    button_validar = Button(bebidas, text="Validar Compra", command=validar_e_converter)
+    button_validar.place(relx=0.50, rely=0.90, anchor='center')
+
+    # ---- Fechar ---- #
+    button_fechar = Button(bebidas, fg="black", bg="white", text="Cancelar", command=bebidas.destroy)
+    button_fechar.place(relx=0.50, rely=0.85, anchor='center')
+
+    bebidas.mainloop()
+
+
 #--------------------------------------------  Bebidas  --------------------------------------------------------------------------------------------------------------#
 
 #--------------------------------------------  Bebidas Alcoólicas  ---------------------------------------------------------------------------------------------------#
@@ -36,13 +154,13 @@ def voltar2():
     bebidas_alc.withdraw()
     restaurante_do_ederson()
 
-
 def bebidas_alcool():
     global bebidas_alc
     bebidas_alc = Toplevel()
     bebidas_alc.title("Restaurante do Ederson - Bebidas Alcoólicas")
-    bebidas_alc.geometry('900x500')
+    bebidas_alc.geometry('1200x800')
 
+    # ---- Background+Variáveis ---- #
     imagem_bg2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\bebidas-refrescantes.jpg"
     bg_imagem2 = Image.open(imagem_bg2)
 
@@ -55,11 +173,64 @@ def bebidas_alcool():
     bg_label2 = Label(bebidas_alc, image=bg_image_tk)
     bg_label2.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-    frame_alcool = Frame(bebidas_alc, bg='white', width=500, height=400)
-    frame_alcool.place(relx=0.5, rely=0.5, anchor='center')
+    quantidade_alcool1 = StringVar()
+    quantidade_alcool2 = StringVar()
+    quantidade_alcool3 = StringVar()
 
-    button_vo = Button(bebidas_alc, fg="white", bg="black", text="Fechar",command=voltar2)
-    button_vo.place(x=900,y=450)
+    # ---- Primeiro Alcoólico ---- #
+    frame_alcool1 = Frame(bebidas_alc, bg='white', width=300, height=400)
+    frame_alcool1.place(relx=0.25, rely=0.5, anchor='center')
+
+    imagem_alcool1 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas_alcoólicas\\caipirinha.png"
+    alcool_image1 = Image.open(imagem_alcool1)
+    alcool_image1 = alcool_image1.resize((200, 200), Image.Resampling.LANCZOS)
+    alcool_image1_tk = ImageTk.PhotoImage(alcool_image1)
+    img_alcool1 = Label(frame_alcool1, image=alcool_image1_tk, bg='white')
+    img_alcool1.image = alcool_image1_tk
+    img_alcool1.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_alcool1, text="Caipirinha", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool1, text="R$ 12,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool1, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_alcool1, width=5, textvariable=quantidade_alcool1).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Segundo Alcoólico ---- #
+    frame_alcool2 = Frame(bebidas_alc, bg='white', width=300, height=400)
+    frame_alcool2.place(relx=0.5, rely=0.5, anchor='center')
+
+    imagem_alcool2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas_alcoólicas\\heineken.png"
+    alcool_image2 = Image.open(imagem_alcool2)
+    alcool_image2 = alcool_image2.resize((200, 200), Image.Resampling.LANCZOS)
+    alcool_image2_tk = ImageTk.PhotoImage(alcool_image2)
+    img_alcool2 = Label(frame_alcool2, image=alcool_image2_tk, bg='white')
+    img_alcool2.image = alcool_image2_tk
+    img_alcool2.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_alcool2, text="Heineken", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool2, text="R$ 40,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool2, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_alcool2, width=5, textvariable=quantidade_alcool2).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Terceiro Alcoólico ---- #
+    frame_alcool3 = Frame(bebidas_alc, bg='white', width=300, height=400)
+    frame_alcool3.place(relx=0.75, rely=0.5, anchor='center')
+
+    imagem_alcool3 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\bebidas_alcoólicas\\smirnoff.png"
+    alcool_image3 = Image.open(imagem_alcool3)
+    alcool_image3 = alcool_image3.resize((200, 200), Image.Resampling.LANCZOS)
+    alcool_image3_tk = ImageTk.PhotoImage(alcool_image3)
+    img_alcool3 = Label(frame_alcool3, image=alcool_image3_tk, bg='white')
+    img_alcool3.image = alcool_image3_tk
+    img_alcool3.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_alcool3, text="Smirnoff", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool3, text="R$ 100,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_alcool3, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_alcool3, width=5, textvariable=quantidade_alcool3).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Fechar ---- #
+    button_vo = Button(bebidas_alc, fg="white", bg="black", text="Fechar", command=voltar2)
+    button_vo.place(relx=0.50, rely=0.85, anchor='center')
 
     bebidas_alc.mainloop()
 #--------------------------------------------  Bebidas Alcoólicas  ---------------------------------------------------------------------------------------------------#
@@ -76,7 +247,7 @@ def entradas():
     entrada.geometry('1200x800')
 
     # ---- Background ---- #
-    imagem_bg = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\entrada.jpg"
+    imagem_bg = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\opcoes-de-entrada-restaurante.jpg"
     bg_imagem = Image.open(imagem_bg)
 
     screen_width4 = entrada.winfo_screenwidth()
@@ -113,7 +284,7 @@ def entradas():
     frame_entrada2 = Frame(entrada, bg='white', width=900, height=450)
     frame_entrada2.place(relx=0.50, rely=0.35, anchor='center')
 
-    imagem_entrada2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\entrada\\sopa.png"
+    imagem_entrada2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\entrada\\bolinho de carne.png"
     entrada_image2 = Image.open(imagem_entrada2)
     entrada_image2 = entrada_image2.resize((200, 200), Image.Resampling.LANCZOS)
     entrada_image2_tk = ImageTk.PhotoImage(entrada_image2)
@@ -121,7 +292,7 @@ def entradas():
     img_entrada2.image = entrada_image2_tk
     img_entrada2.grid(row=1, column=0, padx=10, pady=10)
 
-    Label(frame_entrada2, text="Sopa", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_entrada2, text="Bolinho de Carne", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
     Label(frame_entrada2, text="R$ 12,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
     Label(frame_entrada2, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
     Entry(frame_entrada2, width=5, textvariable=quantidade_entrada2).grid(row=3, column=0, padx=10, pady=5, sticky='n')
@@ -130,7 +301,7 @@ def entradas():
     frame_entrada3 = Frame(entrada, bg='white', width=900, height=450)
     frame_entrada3.place(relx=0.75, rely=0.35, anchor='center')
 
-    imagem_entrada3 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\entrada\\pasta.png"
+    imagem_entrada3 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\entrada\\salada.png"
     entrada_image3 = Image.open(imagem_entrada3)
     entrada_image3 = entrada_image3.resize((200, 200), Image.Resampling.LANCZOS)
     entrada_image3_tk = ImageTk.PhotoImage(entrada_image3)
@@ -138,7 +309,7 @@ def entradas():
     img_entrada3.image = entrada_image3_tk
     img_entrada3.grid(row=1, column=0, padx=10, pady=10)
 
-    Label(frame_entrada3, text="Pasta", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_entrada3, text="Salada", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
     Label(frame_entrada3, text="R$ 20,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
     Label(frame_entrada3, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
     Entry(frame_entrada3, width=5, textvariable=quantidade_entrada3).grid(row=3, column=0, padx=10, pady=5, sticky='n')
@@ -148,7 +319,7 @@ def entradas():
         entrada.destroy()
 
     button_voltar = Button(entrada, fg="black", bg="white", text="Fechar", command=voltar4)
-    button_voltar.place(relx=0.50, rely=0.90, anchor='center')
+    button_voltar.place(relx=0.50, rely=0.85, anchor='center')
 
     entrada.mainloop()
 #--------------------------------------------  Entrada  --------------------------------------------------------------------------------------------------------------#
@@ -235,7 +406,7 @@ def escolha():
 
     # ---- Fechar ---- #
     button_voltar = Button(escolha_da_casa, fg="black", bg="white", text="Fechar", command=voltar4)
-    button_voltar.place(relx=0.50, rely=0.90, anchor='center')
+    button_voltar.place(relx=0.50, rely=0.85, anchor='center')
 
     escolha_da_casa.mainloop()
 
@@ -252,7 +423,7 @@ def doce():
     doces.title("Restaurante do Ederson - Doces")
     doces.geometry('1200x800')
 
-    # ---- Background ---- #
+    # ---- Background + Variáveis ---- #
     imagem_bg5 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\balcao-de-padaria.png"
     bg_imagem5 = Image.open(imagem_bg5)
 
@@ -265,10 +436,15 @@ def doce():
     bg_label5 = Label(doces, image=bg_image_tk)
     bg_label5.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-    # Variáveis para armazenar as quantidades inseridas
     quantidade_doce1 = StringVar()
     quantidade_doce2 = StringVar()
     quantidade_doce3 = StringVar()
+
+    quantidade_doce1*=25
+    quantidade_doce2*=15
+    quantidade_doce3*=50
+
+    print(quantidade_doce3,quantidade_doce2,quantidade_doce1)
 
     # ---- Primeiro Doce ---- #
     frame_doces1 = Frame(doces, bg='white', width=900, height=450)
@@ -285,7 +461,7 @@ def doce():
     Label(frame_doces1, text="Pizza Doce", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces1, text="R$ 25,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces1, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
-    Entry(frame_doces1, width=10, textvariable=quantidade_doce1).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+    Entry(frame_doces1, width=5, textvariable=quantidade_doce1).grid(row=3, column=0, padx=10, pady=5, sticky='n')
 
     # ---- Segundo Doce ---- #
     frame_doces2 = Frame(doces, bg='white', width=900, height=450)
@@ -296,13 +472,13 @@ def doce():
     doce_image2 = doce_image2.resize((200, 200), Image.Resampling.LANCZOS)
     doce_image2_tk = ImageTk.PhotoImage(doce_image2)
     img_doce2 = Label(frame_doces2, image=doce_image2_tk, bg='white')
-    img_doce2.image = doce_image2_tk  # Manter referência da imagem
+    img_doce2.image = doce_image2_tk
     img_doce2.grid(row=1, column=0, padx=10, pady=10)
 
     Label(frame_doces2, text="Sorvete", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces2, text="R$ 15,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces2, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
-    Entry(frame_doces2, width=10, textvariable=quantidade_doce2).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+    Entry(frame_doces2, width=5, textvariable=quantidade_doce2).grid(row=3, column=0, padx=10, pady=5, sticky='n')
 
     # ---- Terceiro Doce ---- #
     frame_doces3 = Frame(doces, bg='white', width=900, height=450)
@@ -319,7 +495,7 @@ def doce():
     Label(frame_doces3, text="Bolo de Chocolate", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces3, text="R$ 50,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
     Label(frame_doces3, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
-    Entry(frame_doces3, width=10, textvariable=quantidade_doce3).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+    Entry(frame_doces3, width=5, textvariable=quantidade_doce3).grid(row=3, column=0, padx=10, pady=5, sticky='n')
 
     # ---- Fechar ---- #
     button_volta = Button(doces, fg="black", bg="white", text="Fechar", command=voltar5)
@@ -354,14 +530,100 @@ def carrinhos():
     frame_buttons.place(relx=0.5, rely=0.5, anchor='center')
 
     button_voltar = Button(carrinho, fg="white", bg="black", text="Fechar", command=voltar6)
-    button_voltar.place(x=900,y=450)
+    button_voltar.place(relx=0.50, rely=0.85, anchor='center')
 
     carrinho.mainloop()
 #--------------------------------------------  Carrinho  -------------------------------------------------------------------------------------------------------------#
 
+#--------------------------------------------  Principal  -------------------------------------------------------------------------------------------------------------#
+def voltar7():
+    principal.destroy()
+
+def principais():
+    global principal
+    principal = Toplevel()
+    principal.title("Restaurante do Ederson - Principal")
+    principal.geometry('1200x800')
+
+    # ---- Background + Variáveis ---- #
+    imagem_bg7 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\feijoada.jpg"
+    bg_imagem7 = Image.open(imagem_bg7)
+
+    screen_width7 = principal.winfo_screenwidth()
+    screen_height7 = principal.winfo_screenheight()
+    bg_imagem7 = bg_imagem7.resize((screen_width7, screen_height7), Image.Resampling.LANCZOS)
+
+    bg_image_tk = ImageTk.PhotoImage(bg_imagem7)
+
+    bg_label7 = Label(principal, image=bg_image_tk)
+    bg_label7.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+    quantidade_principal1 = StringVar()
+    quantidade_principal2 = StringVar()
+    quantidade_principal3 = StringVar()
+
+ # ---- Primeiro Principal ---- #
+    frame_principal1 = Frame(principal, bg='white', width=900, height=450)
+    frame_principal1.place(relx=0.25, rely=0.35, anchor='center')
+
+    imagem_principal1 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\principal\\baiao_do_bao.png"
+    principal_image1 = Image.open(imagem_principal1)
+    principal_image1 = principal_image1.resize((200, 200), Image.Resampling.LANCZOS)
+    principal_image1_tk = ImageTk.PhotoImage(principal_image1)
+    img_principal1 = Label(frame_principal1, image=principal_image1_tk, bg='white')
+    img_principal1.image = principal_image1_tk
+    img_principal1.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_principal1, text="Baião de Dois", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal1, text="R$ 25,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal1, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_principal1, width=10, textvariable=quantidade_principal1).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Segundo Principal ---- #
+    frame_principal2 = Frame(principal, bg='white', width=900, height=450)
+    frame_principal2.place(relx=0.50, rely=0.35, anchor='center')
+
+    imagem_principal2 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\principal\\lasanha.png"
+    principal_image2 = Image.open(imagem_principal2)
+    principal_image2 = principal_image2.resize((200, 200), Image.Resampling.LANCZOS)
+    principal_image2_tk = ImageTk.PhotoImage(principal_image2)
+    img_principal2 = Label(frame_principal2, image=principal_image2_tk, bg='white')
+    img_principal2.image = principal_image2_tk
+    img_principal2.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_principal2, text="Lasanha", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal2, text="R$ 15,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal2, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_principal2, width=10, textvariable=quantidade_principal2).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Terceiro Principal ---- #
+    frame_principal3 = Frame(principal, bg='white', width=900, height=450)
+    frame_principal3.place(relx=0.75, rely=0.35, anchor='center')
+
+    imagem_principal3 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\principal\\pastel.png"
+    principal_image3 = Image.open(imagem_principal3)
+    principal_image3 = principal_image3.resize((200, 200), Image.Resampling.LANCZOS)
+    principal_image3_tk = ImageTk.PhotoImage(principal_image3)
+    img_principal3 = Label(frame_principal3, image=principal_image3_tk, bg='white')
+    img_principal3.image = principal_image3_tk 
+    img_principal3.grid(row=1, column=0, padx=10, pady=10)
+
+    Label(frame_principal3, text="Pastel", bg='white', font=('Times New Roman', 20)).grid(row=0, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal3, text="R$ 50,00", bg='white', font=('Times New Roman', 16)).grid(row=2, column=0, padx=10, pady=5, sticky='n')
+    Label(frame_principal3, text="Quantidade: ", bg='white').grid(row=3, column=0, padx=10, pady=5, sticky='w')
+    Entry(frame_principal3, width=10, textvariable=quantidade_principal3).grid(row=3, column=0, padx=10, pady=5, sticky='n')
+
+    # ---- Fechar ---- #
+    button_voltar1 = Button(principal, fg="black", bg="white", text="Fechar", command=voltar7)
+    button_voltar1.place(relx=0.50, rely=0.85, anchor='center')
+
+
+
+    principal.mainloop()
+#--------------------------------------------  Principal  -------------------------------------------------------------------------------------------------------------#
 #--------------------------------------------  Restaurante do Ederson  -----------------------------------------------------------------------------------------------#
 def ver_bebidas():
-    bebidas()
+    abrir_bebidas()
 
 def ver_alcool():
     bebidas_alcool()
@@ -377,6 +639,9 @@ def ver_doces():
 
 def ver_carrinho():
     carrinhos()
+
+def ver_principal():
+    principais()
 
 def abrir_restaurante():
     global restaurante_do_ederson
@@ -430,8 +695,11 @@ def abrir_restaurante():
     button_doc = Button(frame_buttons, fg="white", bg="black", text="Doces", width=15, height=3, command=ver_doces)
     button_doc.grid(row=4, column=1, padx=10, pady=5)
     
+    button_pri = Button(frame_buttons, fg="white", bg="black", text="Principal", width=15, height=3, command=ver_principal)
+    button_pri.grid(row=4, column=2, padx=10, pady=5)
+    
     button_car = Button(frame_buttons, fg="white", bg="palegreen4", text="Carrinho", width=15, height=3, command=ver_carrinho)
-    button_car.grid(row=4, column=2, padx=10, pady=5)
+    button_car.grid(row=5, column=1, padx=10, pady=5)
 
     restaurante_do_ederson.mainloop()
 #--------------------------------------------  Restaurante do Ederson  ---------------------------------------------------------------------------------------------#
