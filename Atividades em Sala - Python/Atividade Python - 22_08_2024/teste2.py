@@ -1,76 +1,72 @@
-from tkinter import Tk, Frame, Label, Button
-from PIL import Image, ImageTk
+comanda = {
+    # --- Bebidas --- #
+    'Água de Coco': {'quantidade': 0, 'preço_unitário': 10},
+    'Água Tônica': {'quantidade': 0, 'preço_unitário': 12},
+    'Sucos': {'quantidade': 0, 'preço_unitário': 14},
+    'Coca-Cola': {'quantidade': 0, 'preço_unitário': 9},
+    'Fanta': {'quantidade': 0, 'preço_unitário': 8.99},
 
-def ver_bebidas():
-    pass  # Implementar a função
+    # --- Bebidas Alcoólicas --- #
+    'Caipirinha': {'quantidade': 0, 'preço_unitário': 13.85},
+    'Heineken': {'quantidade': 0, 'preço_unitário': 16.00},
+    'Smirnoff': {'quantidade': 0, 'preço_unitário': 15.00},
+    'Vodka': {'quantidade': 0, 'preço_unitário': 80.75},
+    'Red Label': {'quantidade': 0, 'preço_unitário': 100.00},
 
-def ver_alcool():
-    pass  # Implementar a função
+    # --- Entrada --- #
+    'Batata Frita': {'quantidade': 0, 'preço_unitário': 14.00},
+    'Bolinho de Carne': {'quantidade': 0, 'preço_unitário': 18.00},
+    'Salada': {'quantidade': 0, 'preço_unitário': 12.00},
+    'Polenta': {'quantidade': 0, 'preço_unitário': 15.00},
+    'Bruchetta': {'quantidade': 0, 'preço_unitário': 20.00},
 
-def ver_entrada():
-    pass  # Implementar a função
+    # --- Escolha da Casa --- #
+    'Bife à Milanesa': {'quantidade': 0, 'preço_unitário': 25.00},
+    'Feijoada': {'quantidade': 0, 'preço_unitário': 28.55},
+    'Hambúrguer': {'quantidade': 0, 'preço_unitário': 25.00},
+    'Acarajé': {'quantidade': 0, 'preço_unitário': 50.00},
+    'Picanha': {'quantidade': 0, 'preço_unitário': 50.00},
 
-def ver_escolha_da_casa():
-    pass  # Implementar a função
+    # --- Doces --- #
+    'Pizza Doce': {'quantidade': 0, 'preço_unitário': 25.00},
+    'Sorvete': {'quantidade': 0, 'preço_unitário': 15.00},
+    'Torta de Chocolate': {'quantidade': 0, 'preço_unitário': 45.50},
+    'Pudim de Leite': {'quantidade': 0, 'preço_unitário': 50.00},
+    'Bolo de Cenoura': {'quantidade': 0, 'preço_unitário': 50.00},
 
-def ver_doces():
-    pass  # Implementar a função
+    # --- Principal --- #
+    'Baião de Dois': {'quantidade': 0, 'preço_unitário': 25.00},
+    'Lasanha': {'quantidade': 0, 'preço_unitário': 15.00},
+    'Pastel': {'quantidade': 0, 'preço_unitário': 18.00},
+    'Frango a Parmegiana': {'quantidade': 0, 'preço_unitário': 30.00},
+    'Bife a Cavalo': {'quantidade': 0, 'preço_unitário': 35.00}
 
-# Inicialização da janela principal
-restaurante_do_ederson = Tk()
-restaurante_do_ederson.title("Restaurante do Ederson")
-restaurante_do_ederson.geometry('1600x1080')
+}
 
-# Carregar e redimensionar a imagem de fundo
-imagem_bg = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\imagens\Pantanal_em_Mato_Grosso_Brasil.jpg"
-bg_imagem = Image.open(imagem_bg)
+def abrir_carrinho():
+    global carrinho
+    carrinho = Toplevel()
+    carrinho.title("Restaurante do Ederson - Carrinho")
+    carrinho.geometry('1200x800')
 
-# Redimensionar a imagem para o tamanho da tela
-screen_width = restaurante_do_ederson.winfo_screenwidth()
-screen_height = restaurante_do_ederson.winfo_screenheight()
-bg_imagem = bg_imagem.resize((screen_width, screen_height), Image.Resampling.LANCZOS)
+    imagem_bg6 = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\\imagens\\background\\maquina_registradora.jpg"
+    bg_imagem6 = Image.open(imagem_bg6)
 
-bg_image_tk = ImageTk.PhotoImage(bg_imagem)
+    screen_width6 = carrinho.winfo_screenwidth()
+    screen_height6 = carrinho.winfo_screenheight()
+    bg_imagem6 = bg_imagem6.resize((screen_width6, screen_height6), Image.Resampling.LANCZOS)
 
-# Adicionar imagem de fundo à janela principal
-bg_label = Label(restaurante_do_ederson, image=bg_image_tk)
-bg_label.place(relx=0, rely=0, relwidth=1, relheight=1)  # Faz com que a imagem cubra toda a janela
+    bg_image_tk = ImageTk.PhotoImage(bg_imagem6)
 
-# Criação do Frame para os botões com tamanho definido
-frame_buttons = Frame(restaurante_do_ederson, bg='white', width=800, height=400)
-frame_buttons.place(relx=0.5, rely=0.5, anchor='center')
+    bg_label6 = Label(carrinho, image=bg_image_tk)
+    bg_label6.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-# Adicionar a imagem do logo ao Frame
-logo_image_path = r"Atividades em Sala - Python\\Atividade Python - 22_08_2024\imagens\logo\logotipo2.restaurante(bg).png.png"
-logo_image = Image.open(logo_image_path)
-logo_image_tk = ImageTk.PhotoImage(logo_image)
-img_label = Label(frame_buttons, image=logo_image_tk, bg='white')  # Adicione bg='white' para compatibilidade com o fundo branco do frame
-img_label.pack(pady=10)
+    frame_buttons = Frame(carrinho, bg='white', width=500, height=400)
+    frame_buttons.place(relx=0.5, rely=0.5, anchor='center')
 
-# Texto de boas-vindas
-text_user = "Usuário"  # Substitua com o nome do usuário real
-texto = Label(frame_buttons, text=f"Bem Vindo {text_user}, ao Restaurante do Ederson!", bg='white', font=('Arial', 16))
-texto.pack(pady=(10, 5))
+    
 
-# Texto adicional "Opções do Cardápio"
-opcoes_texto = Label(frame_buttons, text="Opções do Cardápio", font=('Arial', 16, 'bold'), bg='white')
-opcoes_texto.pack(pady=(5, 20))
+    button_voltar = Button(carrinho, fg="white", bg="black", text="Fechar", command=carrinho.destroy)
+    button_voltar.place(relx=0.50, rely=0.85, anchor='center')
 
-# Botões
-button_beb = Button(frame_buttons, fg="white", bg="black", text="Bebidas", width=15, height=3, command=ver_bebidas)
-button_beb.pack(pady=5)
-
-button_alco = Button(frame_buttons, fg="white", bg="black", text="Bebidas Alcoólicas", width=15, height=3, command=ver_alcool)
-button_alco.pack(pady=5)
-
-button_ent = Button(frame_buttons, fg="white", bg="black", text="Entrada", width=15, height=3, command=ver_entrada)
-button_ent.pack(pady=5)
-
-button_esc = Button(frame_buttons, fg="white", bg="black", text="Escolha da Casa", width=15, height=3, command=ver_escolha_da_casa)
-button_esc.pack(pady=5)
-
-button_doc = Button(frame_buttons, fg="white", bg="black", text="Doces", width=15, height=3, command=ver_doces)
-button_doc.pack(pady=5)
-
-# Inicia o loop principal da aplicação
-restaurante_do_ederson.mainloop()
+    carrinho.mainloop()
