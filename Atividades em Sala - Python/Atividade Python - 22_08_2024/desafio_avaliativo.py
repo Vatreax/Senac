@@ -1095,11 +1095,9 @@ def resetar_comanda():
     atualizar_interface()
 
 def atualizar_interface():
-    # Limpar o frame_buttons
     for widget in frame_buttons.winfo_children():
         widget.destroy()
 
-    # Exibir dicionário e total no frame
     total = calcular_total_comanda()
     
     total_label = Label(frame_buttons, text=f"Total da Comanda: R$ {total:.2f}", bg='white', font=('Arial', 16))
@@ -1113,11 +1111,9 @@ def atualizar_interface():
         item_label = Label(frame_buttons, text=item_info, bg='white', font=('Arial', 12))
         item_label.pack()
 
-    # Botão Fechar dentro do frame
     button_voltar = Button(frame_buttons, fg="white", bg="black", text="Fechar", command=carrinho.destroy)
     button_voltar.pack(pady=10)
 
-    # Botão Resetar dentro do frame
     button_resetar = Button(frame_buttons, fg="white", bg="red", text="Resetar Comanda", command=resetar_comanda)
     button_resetar.pack(pady=5)
 
@@ -1275,5 +1271,5 @@ cadastro_button = Button(root, text="Login", command=verificar)
 cadastro_button.pack()
 cadastro_button.place(x=120,y=120)
 root.mainloop()
-#----------------------
+
 # ----------------------  Login  --------------------------------------------------------------------------------------------------------------#
