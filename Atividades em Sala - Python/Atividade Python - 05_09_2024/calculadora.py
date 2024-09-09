@@ -1,12 +1,12 @@
 from tkinter import *
-import math
+
 
 
 quantidade_entrada1_var = ''
 
 calculadora = Tk()
 calculadora.title("Calculadora")
-calculadora.geometry("312x312")
+calculadora.geometry("282x238")
 
 screen_width = calculadora.winfo_screenwidth()
 screen_height = calculadora.winfo_screenheight()
@@ -25,16 +25,16 @@ def printada(equatorius):
     print(resultado)
 
 
-equatorius = Entry(frame, width=40)
-equatorius.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
+equatorius = Entry(frame, width=44)
+equatorius.grid(row=0, column=0, columnspan=20, padx=5, pady=5)
 
 
 
 porcentus = Button(frame, fg="white", bg="navy", text='√', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "**0.5"))
-porcentus.grid(row=4, column=0, padx=5, pady=5)
+porcentus.grid(row=2, column=0, padx=5, pady=5)
 
 decimus = Button(frame, fg="white", bg="navy", text='.', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "."))
-decimus.grid(row=5, column=2, padx=5, pady=5)
+decimus.grid(row=3, column=0, padx=5, pady=5)
 
 zero = Button(frame, fg="white", bg="navy", text="0", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', 0))
 zero.grid(row=4, column=1, padx=5, pady=5)
