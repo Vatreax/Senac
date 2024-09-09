@@ -30,7 +30,7 @@ equatorius.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
 
 
-porcentus = Button(frame, fg="white", bg="navy", text='√', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', f"math.sqrt({equatorius.get()})"))
+porcentus = Button(frame, fg="white", bg="navy", text='√', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "**0.5"))
 porcentus.grid(row=4, column=0, padx=5, pady=5)
 
 decimus = Button(frame, fg="white", bg="navy", text='.', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "."))
@@ -78,7 +78,7 @@ somarius.grid(row=1, column=4, padx=5, pady=5)
 subtrarius = Button(frame, fg="white", bg="navy", text="-", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "-"))
 subtrarius.grid(row=2, column=4, padx=5, pady=5)
 
-multiplicus = Button(frame, fg="white", bg="navy", text="x", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "+"))
+multiplicus = Button(frame, fg="white", bg="navy", text="x", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "*"))
 multiplicus.grid(row=3, column=4, padx=5, pady=5)
 
 dividorus = Button(frame, fg="white", bg="navy", text="÷", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "/"))
