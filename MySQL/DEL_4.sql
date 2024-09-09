@@ -7,14 +7,14 @@
 #    Procure inserir pelo menos uns 6 professores.
 #    Execute os comandos para:
 
-delete if database exists sprint;
+drop database if exists sprint;
 create database sprint;
 use sprint;
 
 create table Professor(
-idProfessor int auto-increment primary key,
+idProfessor int auto_increment primary key,
 nome varchar(50),
-especialidade (40)
+especialidade varchar(40),
 dtNasc date
 );
 
@@ -29,19 +29,21 @@ insert into Professor (nome, especialidade, dtNasc) values
     ('Lucas Pereira', 'Literatura', '1983-12-01');
 
 #    a) Exibir todos os dados da tabela.
-select * from professor;
+select * from Professor;
 
 #    b) Adicionar o campo funcao do tipo varchar(50), onde a função só pode ser ‘monitor’,
 #    ‘assistente’ ou ‘titular’;
 alter table Professor add column funcao varchar(50);
+alter table Professor modify funcao enum('monitor','assistente','titular');
+describe Professor;
 
 #    c) Atualizar os professores inseridos e suas respectivas funções;
-update Professor set funcao = monitor where idProfessor = 1;
-update Professor set funcao = assistente where idProfessor = 2;
-update Professor set funcao = assistente where idProfessor = 3;
-update Professor set funcao = titular where idProfessor = 4;
-update Professor set funcao = assistente where idProfessor = 5;
-update Professor set funcao = monitor where idProfessor = 6;
+update Professor set funcao = 'monitor' where idProfessor = 1;
+update Professor set funcao = 'assistente' where idProfessor = 2;
+update Professor set funcao = 'assistente' where idProfessor = 3;
+update Professor set funcao = 'titular' where idProfessor = 4;
+update Professor set funcao = 'assistente' where idProfessor = 5;
+update Professor set funcao = 'monitor' where idProfessor = 6;
 
 #    d) Inserir um novo professor;
 insert into Professor (nome, especialidade, dtNasc, funcao) values
@@ -51,7 +53,7 @@ insert into Professor (nome, especialidade, dtNasc, funcao) values
 delete from Professor where idProfessor = 5;
 
 #    f) Exibir apenas os nomes dos professores titulares;
-select nome from Professor where funcao = 'titulares';
+select nome from Professor where funcao = 'titular';
 
 #    g) Exibir apenas as especialidades e as datas de nascimento dos professores monitores;
 select especialidade,dtNasc from Professor where funcao = 'monitor';

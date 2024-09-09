@@ -5,12 +5,12 @@
 #    Execute os comandos para:
 
 
-delete database if exists sprint;
+drop database if exists sprint;
 create database sprint;
 use sprint;
 
 create table Curso(
-idCurso int auto-increment primary key,
+idCurso int auto_increment primary key,
 nome varchar(50),
 sigla varchar(3),
 coordenador varchar(50)
@@ -50,7 +50,7 @@ select * from Curso where nome like '_A%';
 
 #    i) Exibir os dados da tabela, dos cursos cujo nome tenha como penúltima letra uma
 #    determinada letra.
-select * from Curso where nome like '%A_'
+select * from Curso where nome like '%A_';
 
 #    j) Elimine a tabela.
 truncate Curso;
