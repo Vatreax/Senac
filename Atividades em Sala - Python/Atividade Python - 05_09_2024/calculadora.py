@@ -1,12 +1,8 @@
 from tkinter import *
 
-
-
-quantidade_entrada1_var = ''
-
 calculadora = Tk()
 calculadora.title("Calculadora")
-calculadora.geometry("282x238")
+calculadora.geometry("278x200")
 
 screen_width = calculadora.winfo_screenwidth()
 screen_height = calculadora.winfo_screenheight()
@@ -14,27 +10,49 @@ screen_height = calculadora.winfo_screenheight()
 frame = Frame(calculadora, bg='black', width=screen_width, height=screen_height)
 frame.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-
-
 def printada(equatorius):
-
     entrada = equatorius.get()
-    resultado = eval(entrada)
-    equatorius.delete(0, 'end')
-    equatorius.insert('end', resultado)
-    print(resultado)
+    try:
+        entrada = entrada.replace('√', '**0.5').replace('%', '/100')
+        resultado = eval(entrada)
+        equatorius.delete(0, 'end')
+        equatorius.insert('end', resultado)
+        print(resultado)
 
+    except Exception as e:
+        equatorius.delete(0, 'end')
+        equatorius.insert('end', 'Erro')
+        print(e)
+
+def delete(equatorius):
+    texto = equatorius.get()
+    if texto:
+        equatorius.delete(len(texto) - 1, 'end')
+
+def porcem(equatorius):
+    texto = equatorius.get()
+    if texto and texto[-1] not in "+-*/%√":
+        equatorius.insert('end', '%')
+
+def raiz_quadrada(equatorius):
+    texto2 = equatorius.get()
+    if texto2 and texto2[-1] not in "+-*/√%":
+        equatorius.insert('end', '√')
 
 equatorius = Entry(frame, width=44)
-equatorius.grid(row=0, column=0, columnspan=20, padx=5, pady=5)
+equatorius.grid(row=0, column=0, columnspan=10, padx=5, pady=5)
 
+deletado = Button(frame, fg="white", bg="red", text='Del', font='bold', width=4, height=1, command=lambda: delete(equatorius))
+deletado.grid(row=1, column=0, padx=5, pady=5)
 
+raiz = Button(frame, fg="white", bg="navy", text='√', font='bold', width=4, height=1, command=lambda: raiz_quadrada(equatorius))
+raiz.grid(row=2, column=0, padx=5, pady=5)
 
-porcentus = Button(frame, fg="white", bg="navy", text='√', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "**0.5"))
-porcentus.grid(row=2, column=0, padx=5, pady=5)
+percentual = Button(frame, fg="white", bg="navy", text='%', font='bold', width=4, height=1, command=lambda: porcem(equatorius))
+percentual.grid(row=3, column=0, padx=5, pady=5)
 
 decimus = Button(frame, fg="white", bg="navy", text='.', font='bold', width=4, height=1, command=lambda: equatorius.insert('end', "."))
-decimus.grid(row=3, column=0, padx=5, pady=5)
+decimus.grid(row=4, column=0, padx=5, pady=5)
 
 zero = Button(frame, fg="white", bg="navy", text="0", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', 0))
 zero.grid(row=4, column=1, padx=5, pady=5)
@@ -42,7 +60,7 @@ zero.grid(row=4, column=1, padx=5, pady=5)
 igualitarius = Button(frame, fg="white", bg="navy", text='=', font='bold', width=4, height=1, command=lambda: printada(equatorius))
 igualitarius.grid(row=4, column=3, padx=5, pady=5)
 
-apagar = Button(frame, fg="white", bg="navy", text='Clear', font='bold', width=4, height=1, command=lambda:  equatorius.delete(0, 'end'))
+apagar = Button(frame, fg="white", bg="navy", text='Clear', font='bold', width=4, height=1, command=lambda: equatorius.delete(0, 'end'))
 apagar.grid(row=4, column=2, padx=5, pady=5)
 
 um = Button(frame, fg="white", bg="navy", text="1", font='bold', width=4, height=1, command=lambda: equatorius.insert('end', 1))
