@@ -1079,10 +1079,6 @@ def abrir_principal():
 
 
 #--------------------------------------------  Carrinho  -------------------------------------------------------------------------------------------------------------#
-from tkinter import *
-from tkinter import messagebox
-from PIL import Image, ImageTk
-
 def calcular_total_comanda():
     total = 0
     for item, dados in comanda.items():
