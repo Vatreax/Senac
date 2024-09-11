@@ -12,60 +12,53 @@ import mysql.connector
 from tkinter import *
 from tkinter import messagebox
 
-
-
-def cadastrar():
-    registros.destroy()
-    def Destruir():
-        messagebox.showwarning("Atenção","Abra novamente o sistema")
-        cadastro.destroy()
-
-
-
-    cadastro = Tk()
-    cadastro.geometry("400x400")
-
-    voltar_button = Button(cadastro, text="Registrar",font=('arial',15,'bold'), bg='white', command= Destruir)
-    voltar_button.place(relx=0.46, rely=0.85, anchor='center')
-    cadastro.mainloop()
-
-
-def submitact():
-     
+def logar():
     usuario = usuario_entry.get()
     senha = senha_entry.get()
-  
-    print(f"O nome inserido foi {usuario} {senha}")
-  
-    logintodb(usuario, senha)
-  
- 
-def logintodb(usuario, senha):
     
-    if senha:
-        dataBase = mysql.connector.connect( 
-                            host = "10.28.2.39", 
-                            user = "suporte", 
-                            password = "suporte", 
-                            database = "registros")
+    if usuario and senha:
+        if verificar_login(usuario, senha):
+            messagebox.showinfo("Login", "Login bem-sucedido!")
+            inserir_texto = Toplevel()
+            inserir_texto.title("Inserir Texto")
+            inserir_texto.geometry('300x300')
 
-        savequery = "select * from registros.login"
+            texto_label = Label(inserir_texto, text="Texto", font=('arial',15,'bold'), bg='white')
+            texto_label.place(relx=0.50, rely=0.25, anchor='center')
+            texto_entry = Entry(inserir_texto, font=('arial',15), bg='white')
+            texto_entry.place(relx=0.50, rely=0.35, anchor='center')
 
-        cursor = dataBase.cursor()
-        
+            inserir_texto.mainloop()
+        else:
+            messagebox.showerror("Login", "Usuário ou senha inválidos.")
+    else:
+        messagebox.showwarning("Aviso", "Por favor, preencha todos os campos.")
 
+def verificar_login(usuario, senha):
     try:
-        cursor.execute(savequery)
-        myresult = cursor.fetchall()
-    
-        for x in myresult:
-            print(x)
+        
+        dataBase = mysql.connector.connect(
+            host="10.28.2.39",
+            user="suporte",
+            password="suporte",
+            database="registros"
+        )
+        cursor = dataBase.cursor()
 
-        print("Query Excecuted successfully")
+        sql = "SELECT * FROM login WHERE usuario = %s AND senha = %s"
+        cursor.execute(sql, (usuario, senha))
+        
+        resultado = cursor.fetchone()
+        
+        cursor.close()
+        dataBase.close()
+        
+        return resultado is not None
 
-    except:
-        dataBase.rollback()
-        print("Error occured")
+    except mysql.connector.Error:
+        print(f"Erro","Login Fracassado")
+
+
 
 registros = Tk()
 registros.geometry("400x400")
@@ -75,27 +68,20 @@ registros.title("Banco de Dados")
 texto = Label(registros, text="MySQL Teste", font=('arial',18,'bold'), bg='white')
 texto.place(relx=0.50, rely=0.15, anchor='center')
 
-usuario_label = Label(registros, text="Usuario:", font=('arial',15,'bold'), bg='white')
+usuario_label = Label(registros, text="Usuário:", font=('arial',15,'bold'), bg='white')
 usuario_label.place(relx=0.50, rely=0.28, anchor='center')
 usuario_entry = Entry(registros, font=('arial',15), bg='white')
 usuario_entry.place(relx=0.50, rely=0.35, anchor='center')
 
 senha_label = Label(registros, text="Senha:", font=('arial',15,'bold'), bg='white')
 senha_label.place(relx=0.50, rely=0.43, anchor='center')
-senha_entry = Entry(registros, show="*", font=('arial',15), bg='white')
+senha_entry = Entry(registros, font=('arial',15), bg='white')
 senha_entry.place(relx=0.50, rely=0.50, anchor='center')
 
-texto_label = Label(registros, text="Texto", font=('arial',15,'bold'), bg='white')
-texto_label.place(relx=0.50, rely=0.59, anchor='center')
-texto_entry = Entry(registros, show="*", font=('arial',15), bg='white')
-texto_entry.place(relx=0.50, rely=0.65, anchor='center')
-
-submeter_button = Button(registros, text="Inserir",font=('arial',15,'bold'), bg='white', command=submitact)
+submeter_button = Button(registros, text="Inserir", font=('arial',15,'bold'), bg='white', command=logar)
 submeter_button.place(relx=0.35, rely=0.85, anchor='center')
 
-cadastro_button = Button(registros, text="Cadastrar",font=('arial',15,'bold'), bg='white', command=cadastrar)
+cadastro_button = Button(registros, text="Cadastrar", font=('arial',15,'bold'), bg='white', command=None)
 cadastro_button.place(relx=0.65, rely=0.85, anchor='center')
 
-
 registros.mainloop()
-
