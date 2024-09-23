@@ -1,45 +1,44 @@
-import tkinter as tk
-from tkinter import StringVar, Label, Entry, Button, messagebox
+import customtkinter as ctk
+from PIL import Image
 
-def converter_para_inteiro(s):
-    try:
-        return int(s)
-    except ValueError:
-        return None
+# Criação da janela principal
+login = ctk.CTk()
+login.title("Login")
+login.geometry("1920x1080")
 
-def validar_e_converter():
-    quantidade_doce1 = quantidade_doce1_var.get()
-    quantidade_doce2 = quantidade_doce2_var.get()
+# Carregando a imagem
+my_image = ctk.CTkImage(
+    light_image=Image.open(r"C:\Users\RafaelMontiel\Downloads\casadog2.png"),
+    dark_image=Image.open(r"C:\Users\RafaelMontiel\Downloads\casadog2.png"),
+    size=(150, 150)  # Ajuste o tamanho da imagem conforme necessário
+)
 
-    # Verificar se os campos estão vazios
-    if quantidade_doce1 == "" or quantidade_doce2 == "":
-        messagebox.showerror("Erro", "Todos os campos devem ser preenchidos.")
-        return
+# Criando um label para a imagem
+image_label = ctk.CTkLabel(master=login, image=my_image, text="Logo Podre de Chique", compound="top")
+image_label.place(x=960, y=200, anchor='center')  # Centralizando o label na janela
 
-    # Converter para inteiros e verificar erros
-    numero_doce1 = converter_para_inteiro(quantidade_doce1)
-    numero_doce2 = converter_para_inteiro(quantidade_doce2)
+# Se você quiser adicionar um frame para os campos de login
+frame_login = ctk.CTkFrame(master=login, width=510, height=500, corner_radius=10)
+frame_login.place(x=960, y=540, anchor='center')
 
-    if numero_doce1 is None or numero_doce2 is None:
-        messagebox.showerror("Erro", "Por favor, insira apenas números inteiros válidos.")
-    else:
-        messagebox.showinfo("Conversão Bem-Sucedida", f"Quantidade Doce 1: {numero_doce1}\nQuantidade Doce 2: {numero_doce2}")
+# Adicionando labels e entradas no frame
+label_nome_email = ctk.CTkLabel(master=frame_login, text="Nome/Email")
+label_nome_email.grid(row=0, column=0, padx=5, pady=5)
 
-# Configuração da interface gráfica
-root = tk.Tk()
-root.title("Conversão e Validação de Quantidade")
+entry_nome_email = ctk.CTkEntry(master=frame_login, width=400)
+entry_nome_email.grid(row=1, column=0, padx=5, pady=5)
 
-# Variáveis StringVar
-quantidade_doce1_var = StringVar()
-quantidade_doce2_var = StringVar()
+label_senha = ctk.CTkLabel(master=frame_login, text="Senha")
+label_senha.grid(row=2, column=0, padx=5, pady=5)
 
-# Layout
-Label(root, text="Quantidade Doce 1:").pack(pady=5)
-Entry(root, textvariable=quantidade_doce1_var).pack(pady=5)
+entry_senha = ctk.CTkEntry(master=frame_login, width=400, show="*")
+entry_senha.grid(row=3, column=0, padx=5, pady=5)
 
-Label(root, text="Quantidade Doce 2:").pack(pady=5)
-Entry(root, textvariable=quantidade_doce2_var).pack(pady=5)
+button_cadastrar = ctk.CTkButton(master=frame_login, text="Cadastrar")
+button_cadastrar.grid(row=4, column=0, padx=5, pady=5)
 
-Button(root, text="Validar e Converter", command=validar_e_converter).pack(pady=20)
+button_login = ctk.CTkButton(master=frame_login, text="Entrar")
+button_login.grid(row=4, column=1, padx=5, pady=5)
 
-root.mainloop()
+# Iniciando o loop principal
+login.mainloop()
