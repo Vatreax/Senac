@@ -62,4 +62,4 @@ select especialidade,dtNasc from Professor where funcao = 'monitor';
 update Professor set dtNasc = '2000-04-01' where idProfessor = 3;
 
 #    i) Limpar a tabela Professor;
-truncate Professor;
+# truncate Professor;

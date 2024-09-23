@@ -90,8 +90,8 @@ def verificar_login(usuario, senha):
         
         return resultado is not None
 
-    except mysql.connector.Error:
-        print(f"Erro","Login Fracassado")
+    except mysql.connector.Error as con:
+        messagebox.showerror("Erro",f"Erro: {con}")
 # ------------------------------------------- TEXTO ------------------------------------------------------------------------------------------- #
 
 # ---------------------------------- CADASTRO ------------------------------------------------------------------------------------------------- #
