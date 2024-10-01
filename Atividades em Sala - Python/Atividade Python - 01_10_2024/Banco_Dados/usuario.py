@@ -38,4 +38,5 @@ class Usuario:
         self.db.commit()
 
 user = Usuario('bancoDados.db')
-user.criar_usuario('Rafael','rafasmontiel13@gmail.com')
+#user.criar_usuario('Rafael','rafasmontiel13@gmail.com')
+#user.deletar_usuario(7)
