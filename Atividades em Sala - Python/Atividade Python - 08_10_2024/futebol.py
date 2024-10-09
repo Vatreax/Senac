@@ -22,7 +22,7 @@ def classificacao_2017():
 
 def derrotas_10():
     plt.close()
-    derrotas = df.query('Derrotas > 10').head(21)
+    derrotas = df.query('Ano in [2015] & Derrotas > 10').head(21)
     print(derrotas, "\n-----------\n")
 
     plt.figure(figsize=(15, 15))
@@ -31,7 +31,7 @@ def derrotas_10():
     plt.xticks(fontsize=7)
     plt.ylabel('')
     plt.xlabel('')
-    plt.title('Clubes com o Maior Número de Derrotas, na Sua Temporada')
+    plt.title('Clubes com o Maior Número de Derrotas, na Temporada 2015')
     plt.show()
 
 def autopct_format(values):
@@ -46,7 +46,7 @@ def idade_Media():
     plt.close()
     contar = df.head(15)
     explode = [0.20] * len(contar)
-    convert = df['Idade_Media'].head(15)
+    convert = df['Ano in [2009] & Idade_Media'].head(15)
     print(contar, "\n-----------\n")
     for x in convert:
         converter.append(float(x.replace(',','.')))
@@ -54,12 +54,12 @@ def idade_Media():
     plt.figure(figsize=(10, 10))
     plt.pie(x=converter, explode=explode,
     labels=df['Clubes'].head(15), rotatelabels=True, autopct = autopct_format(converter))
-    plt.text(0, 1.55, 'Idade Média dos Jogadores por Clube \nNa Sua Respectiva Temporada', va='center', ha='center', fontsize=10, fontweight='bold')
+    plt.text(0, 1.55, 'Idade Média dos Jogadores por Clube \n   Na Temporada 2009', va='center', ha='center', fontsize=10, fontweight='bold')
     plt.show()
 
 def quantidade():
     plt.close()
-    Quantidade = df.query('Qtd_Jogadores > 50').head(21)
+    Quantidade = df.query('Ano in [2010] $ Qtd_Jogadores > 50').head(21)
     print(Quantidade, "\n-----------\n")
 
     plt.figure(figsize=(15, 15))
@@ -68,17 +68,17 @@ def quantidade():
     plt.xticks(fontsize=7)
     plt.ylabel('')
     plt.xlabel('')
-    plt.title('Clubes com a Maior Quantidade de Jogadores, na Sua Temporada')
+    plt.title('Clubes com a Maior Quantidade de Jogadores, na Temporada 2010')
     plt.show()
 
 def vitorias():
     plt.close()
-    victory = df.query('Vitorias > 12').head(30)
+    victory = df.query('Ano in [2011] Vitorias > 12').head(30)
     print(victory, "\n-----------\n")
 
     plt.figure(figsize=(12, 8))
     plt.barh(victory['Clubes'], victory['Vitorias'], color='gold')
-    plt.xlabel('Maior Número de Vitórias, na Sua Respectiva Temporada', fontsize=10, fontweight='bold')
+    plt.xlabel('Maior Número de Vitórias, na Temporada 2011', fontsize=10, fontweight='bold')
     plt.title('')
     plt.show()
 
