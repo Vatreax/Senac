@@ -44,17 +44,15 @@ def autopct_format(values):
 def idade_Media():
     converter = []
     plt.close()
-    contar = df.query('Ano in [2009]').head(15)
+    contar = df.head(15)
 
     explode = [0.20] * len(contar)
     
-    convert = contar['Idade_Media'].head(15)
-    print(convert, "\n-----------\n")
+    convert = df['Idade_Media & Ano in [2009]'].head(15)
+    print(contar, "\n-----------\n")
     for x in convert:
         converter.append(float(x.replace(',','.')))
-#    print(converter)
 
-    
     plt.figure(figsize=(10, 10))
     plt.pie(x=converter, explode=explode,
     labels=df['Clubes'].head(15), rotatelabels=True, autopct = autopct_format(converter))
