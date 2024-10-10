@@ -28,7 +28,16 @@ class aplicar_tela():
         self.label.place(x=x,
                                y=y, 
                                anchor=anchor)
-
+    
+    def sete_text_box(self,text,master,width,height,font,num,index,state,x,y):
+        self.texto = text
+        self.textbox = ctk.CTkTextbox(master, 
+                                width=width, 
+                                height=height, 
+                                font=(font, num))
+        self.textbox.insert(index, text)
+        self.textbox.configure(state=state) 
+        self.textbox.place(x=x,y=y)
 
 df = pd.read_csv(r"Atividades em Sala - Python\Atividade Python - 08_10_2024\tabelas\Tabela_Clubes.csv")
 
@@ -135,17 +144,7 @@ tela.set_botoes(janela_grafico, "Qtd Jogadores 2010", 'white', 'skyblue', quanti
 # -- Botão 5
 tela.set_botoes(janela_grafico, "Mais Vitórias 2011", 'black', 'gold', vitorias, 135, 145)
 # -- link
-
-
-texto = "Fonte: https://www.kaggle.com/datasets/andreifnmg/campeonato-braileiro-20092018"
-
-# Criação de um campo de texto para copiar o texto
-textbox = ctk.CTkTextbox(janela_grafico, 
-                          width=415, 
-                          height=10, 
-                          font=('Arial', 10))
-textbox.insert("0.0", texto)  # Insere o texto no textbox
-textbox.configure(state='normal')  # Permite edição e cópia
-textbox.place(x=5,y=200)
+tela.sete_text_box("Fonte: https://www.kaggle.com/datasets/andreifnmg/campeonato-braileiro-20092018",
+                   janela_grafico, 415, 10, 'Arial', 10, "0.0", 'normal', 5, 200)
 
 janela_grafico.mainloop()
