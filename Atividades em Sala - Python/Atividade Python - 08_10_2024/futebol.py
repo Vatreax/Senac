@@ -2,12 +2,40 @@ import customtkinter as ctk
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# ------------------------- Classe para o Customtkinter ------------------------- #
+class aplicar_tela():
+    def __init__(self) -> None:
+        super().__init__()
+        
+    def set_botoes(self, master, text, text_color, fg_color, command, x, y):
+        self.button = ctk.CTkButton(master=master,
+                                    text=text,
+                                    text_color=text_color,
+                                    fg_color=fg_color,
+                                    command=command,
+                                    font=('Arial', 12, 'bold'))
+        self.button.place(x=x,
+                          y=y)
+
+    def set_text(self,master, text, font, num, intense, x, y, anchor):
+
+        self.label = ctk.CTkLabel(master=master, 
+                                        text=text,
+#                                        fg_color=master.cget('bg'),  
+                                        font=(font,num,intense), 
+                                        )
+        
+        self.label.place(x=x,
+                               y=y, 
+                               anchor=anchor)
+
+
 df = pd.read_csv(r"Atividades em Sala - Python\Atividade Python - 08_10_2024\tabelas\Tabela_Clubes.csv")
 
 #print(df)
 #print("\n-------------\n",df.info())
 
-
+# ------------------------- Gráficos ------------------------- #
 def classificacao_2017():
     plt.close()
     ano_2017 = df.query('Ano in [2017]').head(21)
@@ -44,19 +72,19 @@ def autopct_format(values):
 def idade_Media():
     converter = []
     plt.close()
-    contar = df.head(15)
+    contar = df.query('Ano in [2009]').head(15)
 
     explode = [0.20] * len(contar)
     
-    convert = df['Idade_Media & Ano in [2009]'].head(15)
+    convert = contar['Idade_Media'].head(15)
     print(contar, "\n-----------\n")
     for x in convert:
         converter.append(float(x.replace(',','.')))
 
     plt.figure(figsize=(10, 10))
     plt.pie(x=converter, explode=explode,
-    labels=df['Clubes'].head(15), rotatelabels=True, autopct = autopct_format(converter))
-    plt.text(0, 1.55, 'Idade Média dos Jogadores por Clube \n   Na Temporada 2009', va='center', ha='center', fontsize=10, fontweight='bold')
+    labels=contar['Clubes'].head(15), rotatelabels=True, autopct = autopct_format(converter))
+    plt.text(0, 1.55, 'Média de Idade dos Jogadores por Clube \n   Na Temporada 2009', va='center', ha='center', fontsize=10, fontweight='bold')
     plt.show()
 
 def quantidade():
@@ -84,24 +112,40 @@ def vitorias():
     plt.title('')
     plt.show()
 
+# ------------------------- Customtkinter ------------------------- #
 janela_grafico = ctk.CTk()
-janela_grafico.title("Lista de Gráficos")
+janela_grafico.title("Campeonato Brasileiro")
 janela_grafico._set_appearance_mode("Dark")
-janela_grafico.geometry('165x225')
+janela_grafico.geometry('425x250')
 
-grafico1 = ctk.CTkButton(master=janela_grafico, text="Classificação 2017", fg_color='green', command=classificacao_2017)
-grafico1.place(x=10,y=20)
+tela = aplicar_tela()
 
-grafico2 = ctk.CTkButton(master=janela_grafico, text="Mais Derrotas", fg_color='red', command=derrotas_10)
-grafico2.place(x=10,y=60)
+# -- Titulo
+tela.set_text(janela_grafico, 
+              'Campeonato Brasileiro 2009-2018' + '\nAnálise dos dados dos times do campeonato brasileiro', 
+              'Times New Roman', 18, 'bold', 212, 20, 'center')
+# -- Botão 1
+tela.set_botoes(janela_grafico, "Classificação 2017", 'white', 'green', classificacao_2017, 60, 65)
+# -- Botão 2
+tela.set_botoes(janela_grafico, "Mais Derrotas 2015", 'white', 'red', derrotas_10, 210, 65)
+# -- Botão 3
+tela.set_botoes(janela_grafico, "Média de Idade 2009", 'white', 'black', idade_Media, 60, 105)
+# -- Botão 4
+tela.set_botoes(janela_grafico, "Qtd Jogadores 2010", 'white', 'skyblue', quantidade, 210, 105)
+# -- Botão 5
+tela.set_botoes(janela_grafico, "Mais Vitórias 2011", 'black', 'gold', vitorias, 135, 145)
+# -- link
 
-grafico3 = ctk.CTkButton(master=janela_grafico, text=("Idade Média"), text_color='white', fg_color='black', command=idade_Media)
-grafico3.place(x=10,y=100)
 
-grafico4 = ctk.CTkButton(master=janela_grafico, text="Qtd Jogadores", text_color='white', fg_color='skyblue', command=quantidade)
-grafico4.place(x=10,y=140)
+texto = "Fonte: https://www.kaggle.com/datasets/andreifnmg/campeonato-braileiro-20092018"
 
-grafico5 = ctk.CTkButton(master=janela_grafico, text="Mais Vitórias", text_color='black', fg_color='gold', command=vitorias)
-grafico5.place(x=10,y=180)
+# Criação de um campo de texto para copiar o texto
+textbox = ctk.CTkTextbox(janela_grafico, 
+                          width=415, 
+                          height=10, 
+                          font=('Arial', 10))
+textbox.insert("0.0", texto)  # Insere o texto no textbox
+textbox.configure(state='normal')  # Permite edição e cópia
+textbox.place(x=5,y=200)
 
 janela_grafico.mainloop()
