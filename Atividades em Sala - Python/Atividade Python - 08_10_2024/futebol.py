@@ -44,13 +44,17 @@ def autopct_format(values):
 def idade_Media():
     converter = []
     plt.close()
-    contar = df.head(15)
+    contar = df.query('Ano in [2009]').head(15)
+
     explode = [0.20] * len(contar)
-    convert = df['Ano in [2009] & Idade_Media'].head(15)
-    print(contar, "\n-----------\n")
+    
+    convert = contar['Idade_Media'].head(15)
+    print(convert, "\n-----------\n")
     for x in convert:
         converter.append(float(x.replace(',','.')))
+#    print(converter)
 
+    
     plt.figure(figsize=(10, 10))
     plt.pie(x=converter, explode=explode,
     labels=df['Clubes'].head(15), rotatelabels=True, autopct = autopct_format(converter))
@@ -59,7 +63,7 @@ def idade_Media():
 
 def quantidade():
     plt.close()
-    Quantidade = df.query('Ano in [2010] $ Qtd_Jogadores > 50').head(21)
+    Quantidade = df.query('Ano in [2010] & Qtd_Jogadores > 50').head(21)
     print(Quantidade, "\n-----------\n")
 
     plt.figure(figsize=(15, 15))
@@ -73,7 +77,7 @@ def quantidade():
 
 def vitorias():
     plt.close()
-    victory = df.query('Ano in [2011] Vitorias > 12').head(30)
+    victory = df.query('Ano in [2011] & Vitorias > 12').head(30)
     print(victory, "\n-----------\n")
 
     plt.figure(figsize=(12, 8))
