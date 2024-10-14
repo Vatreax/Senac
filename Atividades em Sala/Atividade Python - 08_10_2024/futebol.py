@@ -44,6 +44,10 @@ df = pd.read_csv(r"Atividades em Sala - Python\Atividade Python - 08_10_2024\tab
 #print(df)
 #print("\n-------------\n",df.info())
 
+class graficos():
+    def __init__(self) -> None:
+        super().__init__()
+
 # ------------------------- Gráficos ------------------------- #
 def classificacao_2017():
     plt.close()
