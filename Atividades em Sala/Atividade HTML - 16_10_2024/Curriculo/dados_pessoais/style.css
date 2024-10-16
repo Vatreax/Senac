@@ -1,0 +1,23 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+.Titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;}
+
+.Pessoa-Branca {
+    height: 500px;
+    width: 500px;
+}
+
+
