@@ -39,7 +39,7 @@ class aplicar_tela():
         self.textbox.configure(state=state) 
         self.textbox.place(x=x,y=y)
 
-df = pd.read_csv(r"Atividades em Sala - Python\Atividade Python - 08_10_2024\tabelas\Tabela_Clubes.csv")
+df = pd.read_csv(r"Atividades em Sala\Atividade Python - 08_10_2024\Tabela_Clubes.csv")
 
 #print(df)
 #print("\n-------------\n",df.info())
