@@ -6,87 +6,116 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="page/php">
-        <form>
-            <fieldset style="width: 290px; height: 180px;" ><legend>Nome</legend>
-                <p><label for="fname">Primeiro Nome:</label><br>
-                <input type="text" id="fname" name="fname" maxlength="10" placeholder="Fizza" size="20" required><br></p>   
-            
-                <label for="lname">Ultimo Nome</label><br>
-                <input type="text" id="lname" name="lname" maxlength="10" placeholder="Now" size="20" required><br>
-                <p></p><button type="submit" value="Enviar">Cadastrar</button> <button type="reset">Limpar Formulário</button>
-            </fieldset>
-        </form>
-        <p>
+    <h1>Cadastro de Usuário</h1>
 
-        <form>
-            <fieldset style="width: 290px; height: 180px;" ><legend>Login</legend>
-                <p><label for="fname">Email:</label><br>
-                <input type="email" id="email" name="email" maxlength="30" placeholder="kikozinho@branco.com" size="20" required><br></p>
+    <p> 
+        <label for="fname">Nome:</label><br>
+        <input type="text" id="fname" name="fname" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
+    <p> 
+        <label for="fname">Nome do Meio:</label><br>
+        <input type="text" id="fname" name="fname" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
+    <p> 
+        <label for="fname">Ultimo Nome:</label><br>
+        <input type="text" id="fname" name="fname" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
+    <p> 
+        <label for="fname">Apelido:</label><br>
+        <input type="text" id="fname" name="fname" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
 
+    <p>
+        <Fieldset style="width: 270px;"><legend>Qual a Sua Linguagem Preferida:</legend>
+    
+       
+        <input type="radio" id="HTML" name="fav_language" value="HTML">
+        <label for="HTML">HTML</label><br>
+           
+        <input type="radio" id="CSS" name="fav_language" value="CSS">
+        <label for="CSS">CSS</label><br>
+           
+        <input type="radio" id="JavaScript" name="fav_language" value="JavaScript">
+        <label for="JavaScript">JavaScript</label><br>
 
-                <p><label for="fname">Senha</label><br>
-                <input type="password" name="Senha" id="campos" maxlength="30" size="20">
-                <p></p><button type="submit" value="Enviar">Cadastrar</button> <button type="reset">Limpar Formulário</button>
-            
-            </fieldset>
-        </form>
-        </p>
-             <p>
-             <Fieldset style="width: 215px;"><legend>Linguagem</legend>
-                <p>Qual a Sua Linguagem Preferida:</p>
-            
-                <input type="radio" id="ingles" name="fav_language" value="ingles">
-                <label for="ingles">Inglês</label><br>
-                
-                <input type="radio" id="espanhol" name="fav_language" value="espanhol">
-                <label for="espanhol">Espanhol</label><br>
-                
-                <input type="radio" id="alemao" name="fav_language" value="alemao">
-                <label for="alemao">Alemão</label><br>
-            </Fieldset></p>
+       </Fieldset>
+    </p>
 
-        <p>
-            <Fieldset style="width: 215px;"><legend>Linguagem</legend>
-                <p>Qual a Sua Linguagem Preferida:</p>
-            
-                <input type="checkbox" id="ingles" name="fav_language" value="ingles">
-                <label for="ingles">Inglês</label><br>
-                
-                <input type="checkbox" id="espanhol" name="fav_language" value="espanhol">
-                <label for="espanhol">Espanhol</label><br>
-                
-                <input type="checkbox" id="alemao" name="fav_language" value="alemao">
-                <label for="alemao">Alemão</label><br>
-            </Fieldset></p>            
+    <p> 
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
 
-        <p>
-        <form>
-            <fieldset id="data" style="width: 215px;  height: 100px">
-                <legend>Data de Nascimento</legend>
-                <p>Data de Nascimento <input type="date" name="date" id="campos" size="20" maxlength="10" placeholder="00-00-0000"></p>
-            </fieldset>
-        </form></p>
+    <p> 
+        <label for="senha">Senha:</label><br>
+        <input type="text" id="senha" name="senha" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
 
-        <form>
-            <fieldset id="hora" style="width: 215px;  height: 100px">
-                <legend>Horário</legend>
-                <p>Hora</p><input type="time" name="date" id="campos" size="20" maxlength="10" placeholder="00-00-0000">
-            </fieldset>
-        </form>
+    
+    <p> 
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" id="telefone" name="telefone" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
 
-        <form>
-            <fieldset id="ghora" style="width: 215px;  height: 100px">
-                <legend>Arquivo</legend>
-                <p>Arquivado</p><input type="file" name="arquivo" id="arquivo">
-            </fieldset>
-            
-        </form>
-        <p>
-            <label for="joke">Me Conta uma Piada</label><br>
-            <textarea name="joke" id="joke" cols="33" rows="5">Me conta uma piada</textarea>
-        </p>
+    <form>
+            Data de Nascimento <br>
+            <input type="date" name="date" id="campos" size="20" maxlength="10" placeholder="00-00-0000">
+    </form>
+
+    <p>
+        Selecione a cor: <br>
+        <input type="color" name="cor" id="cor">
+    </p>
+
+    <p> 
+        <label for="idade">Idade:</label><br>
+        <input type="number" id="idade" name="idade" maxlength="10" placeholder="Digita ai" size="20" required><br>
+    </p>
+
+    <p>
+        Gênero: <br>
+    
+        <input type="radio" id="ingles" name="fav_language" value="ingles">
+        <label for="ingles">Homem</label><br>
         
+        <input type="radio" id="espanhol" name="fav_language" value="espanhol">
+        <label for="espanhol">Mulher</label><br>
+    </p>
 
+
+        <p>Qual a Sua Linguagem Preferida:<br>
+    
+        <input type="checkbox" id="ingles" name="fav_language" value="ingles">
+        <label for="ingles">Palmeiras</label><br>
+        
+        <input type="checkbox" id="espanhol" name="fav_language" value="espanhol">
+        <label for="espanhol">Corinthians</label><br>
+        
+        <input type="checkbox" id="alemao" name="fav_language" value="alemao">
+        <label for="alemao">Flamengo</label><br>
+    </p>       
+
+    Selecione o País: <br>
+    <select name="pais" id="pais">
+        <option value="brasil">Brasil</option>
+        <option value="eua">Estados Unidos</option>
+        <option value="japao">Japão</option>
+    </select>
+
+    <p>
+        Envie sua foto de perfil <br>
+        <input type="file" name="arquivo" id="arquivo">
+    </p>
+
+    <p>
+        Pesquisar Algo: <br>
+        <input type="search" id="pesquisa" name="pesquisa" placeholder="Buscar..." required>
+        <button type="submit">Pesquisar</button>
+    </p>
+
+    <p>
+        <button type="submit" value="Enviar">Cadastrar</button> 
+        <button type="reset">Limpar Formulário</button>
+    </p>
 </body>
 </html>

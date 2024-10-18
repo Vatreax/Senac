@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="page/php">
+        <form>
+            <fieldset style="width: 290px; height: 180px;" ><legend>Nome</legend>
+                <p><label for="fname">Primeiro Nome:</label><br>
+                <input type="text" id="fname" name="fname" maxlength="10" placeholder="Fizza" size="20" required><br></p>   
+            
+                <label for="lname">Ultimo Nome</label><br>
+                <input type="text" id="lname" name="lname" maxlength="10" placeholder="Now" size="20" required><br>
+                <p></p><button type="submit" value="Enviar">Cadastrar</button> <button type="reset">Limpar Formulário</button>
+            </fieldset>
+        </form>
+        <p>
+
+        <form>
+            <fieldset style="width: 290px; height: 180px;" ><legend>Login</legend>
+                <p><label for="fname">Email:</label><br>
+                <input type="email" id="email" name="email" maxlength="30" placeholder="kikozinho@branco.com" size="20" required><br></p>
+
+
+                <p><label for="fname">Senha</label><br>
+                <input type="password" name="Senha" id="campos" maxlength="30" size="20">
+                <p></p><button type="submit" value="Enviar">Cadastrar</button> <button type="reset">Limpar Formulário</button>
+            
+            </fieldset>
+        </form>
+        </p>
+             <p>
+             <Fieldset style="width: 215px;"><legend>Linguagem</legend>
+                <p>Qual a Sua Linguagem Preferida:</p>
+            
+                <input type="radio" id="ingles" name="fav_language" value="ingles">
+                <label for="ingles">Inglês</label><br>
+                
+                <input type="radio" id="espanhol" name="fav_language" value="espanhol">
+                <label for="espanhol">Espanhol</label><br>
+                
+                <input type="radio" id="alemao" name="fav_language" value="alemao">
+                <label for="alemao">Alemão</label><br>
+            </Fieldset></p>
+
+        <p>
+            <Fieldset style="width: 215px;"><legend>Linguagem</legend>
+                <p>Qual a Sua Linguagem Preferida:</p>
+            
+                <input type="checkbox" id="ingles" name="fav_language" value="ingles">
+                <label for="ingles">Inglês</label><br>
+                
+                <input type="checkbox" id="espanhol" name="fav_language" value="espanhol">
+                <label for="espanhol">Espanhol</label><br>
+                
+                <input type="checkbox" id="alemao" name="fav_language" value="alemao">
+                <label for="alemao">Alemão</label><br>
+            </Fieldset></p>            
+
+        <p>
+        <form>
+            <fieldset id="data" style="width: 215px;  height: 100px">
+                <legend>Data de Nascimento</legend>
+                <p>Data de Nascimento <input type="date" name="date" id="campos" size="20" maxlength="10" placeholder="00-00-0000"></p>
+            </fieldset>
+        </form></p>
+
+        <form>
+            <fieldset id="hora" style="width: 215px;  height: 100px">
+                <legend>Horário</legend>
+                <p>Hora</p><input type="time" name="date" id="campos" size="20" maxlength="10" placeholder="00-00-0000">
+            </fieldset>
+        </form>
+
+        <form>
+            <fieldset id="ghora" style="width: 215px;  height: 100px">
+                <legend>Arquivo</legend>
+                <p>Arquivado</p><input type="file" name="arquivo" id="arquivo">
+            </fieldset>
+            
+        </form>
+        <p>
+            <label for="joke">Me Conta uma Piada</label><br>
+            <textarea name="joke" id="joke" cols="33" rows="5">Me conta uma piada</textarea>
+        </p>
+        
+        
+
+</body>
+</html>
