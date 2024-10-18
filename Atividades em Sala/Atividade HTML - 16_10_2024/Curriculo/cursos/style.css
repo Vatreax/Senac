@@ -51,4 +51,9 @@ body {
     cursor: pointer;
     border-radius: 4px;
     text-align: center;
+    transition-duration: 0.4s;
+}
+
+.botao:hover{
+    background-color: blue;
 }
