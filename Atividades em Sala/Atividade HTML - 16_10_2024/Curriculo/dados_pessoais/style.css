@@ -1,23 +1,37 @@
-html{
+.maps {
     width: 100%;
-    height: 100%;
-}
-
-.Titulo {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: 'Times New Roman', Times, serif;}
+    margin: 0;
+    height: 100vh;
+    background-color: #2515b9;
+    background-size: cover;
+    background-position: center;
+    
+}
 
-.Pessoa-Branca {
-    height: 500px;
-    width: 500px;
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
 }
 
 
+.botao {
+    flex: 1;
+    margin: 5px;
+    background-color: #f1a129;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}   

@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('../principal/imagens/hub.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+}
+
+.frame {
+    background-color: white;
+    width: 380px;
+    height: 400px;
+    position: relative; 
+    margin: 100px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5%;
+}
+
+.minha_foto {
+    border-radius: 50%; 
+    height: 150px;
+    width: 150px;
+    position: relative;
+    top: -3px;
+    left: 110px;
+
+}
+
+.texto {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.botao {
+    flex: 1;
+    margin: 5px;
+    background-color: #f1a129;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
