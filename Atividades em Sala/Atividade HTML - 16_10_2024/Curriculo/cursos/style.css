@@ -1,7 +1,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background-image: url('../principal/imagens/hub.jpg');
+    background-image: url('../principal/imagens/aluguel-de-salas-para-cursos-na-paulista-roads1.jpg');
     background-size: cover;
     background-position: center;
     
@@ -18,23 +18,21 @@ body {
 .frame {
     background-color: white;
     width: 380px;
-    height: 400px;
-    position: relative; 
+    height: 350px;
+    position: absolute; 
     margin: 100px auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border-radius: 5%;
+    left: 38.5%;
+    top: 19%;
 }
 
 .minha_foto {
     border-radius: 50%; 
     height: 150px;
     width: 150px;
-    position: relative;
-    top: -3px;
-    left: 110px;
+    position: absolute;
+    top: 0px;
+    left: 120px;
 
 }
 

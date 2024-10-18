@@ -1,14 +1,7 @@
-.maps {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 body {
     margin: 0;
     height: 100vh;
-    background-color: #2515b9;
+    background-image: url('../principal/imagens/arvores_cg1.webp');
     background-size: cover;
     background-position: center;
     
@@ -22,6 +15,35 @@ body {
     width: 100%;
 }
 
+.frame {
+    background-color: white;
+    width: 380px;
+    height: 300px;
+    position: absolute; 
+    margin: 100px auto;
+    border-radius: 5%;
+    left: 38.5%;
+    top: 19%;
+}
+
+.inform {
+    position: absolute;
+    top: 45%;
+    left: 8%;
+}
+.minha_foto {
+    border-radius: 50%; 
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: 0px;
+    left: 120px;
+
+}
+
+.texto {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .botao {
     flex: 1;
@@ -34,4 +56,4 @@ body {
     cursor: pointer;
     border-radius: 4px;
     text-align: center;
-}   
+}
