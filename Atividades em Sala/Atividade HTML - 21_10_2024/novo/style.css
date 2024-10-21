@@ -1,0 +1,62 @@
+ body{
+    /* background-image: url('/imagens/11.gif'); */
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    
+}
+
+h1 {
+  color: white;  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  top: 0%;
+  left: 45%;
+}
+
+nav{
+    position: relative;
+    top: 0%;
+    left: 48%;
+}
+
+#texto_alternativo {
+    color: red;
+    font-family: cursive;
+    position: relative;
+    top: 0%;
+    left: 50%;
+}
+
+audio{
+    position: relative;
+    top: 0%;l
+    left: 44%;
+}
+
+video{
+    position: relative;
+    top: 0%;
+    left: 31%;
+    border: ;
+    border-radius: 50%;
+}
+
+#paragrafo1{
+    color: rgb(4, 255, 242);
+    text-align: right;
+    font-family: serif;
+}
+
+.paragrafo2{
+    color: red;
+    background-color: aliceblue;
+    text-align: left;
+    font-family: monospace;
+}
+
+.paragrafo3{
+    color:rgb(180, 29, 135);
+    text-align: center;
+    font-family: sans-serif;
+}
