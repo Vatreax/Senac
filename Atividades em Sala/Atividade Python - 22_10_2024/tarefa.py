@@ -7,4 +7,4 @@ class Usuario:
         self.lista_livros = []
 
     def pega_emprestar(self,livro):
-        self.livro
+        if len(self.lista_livros) < self.MAX_EMPRESTIMO:
