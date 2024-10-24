@@ -6,5 +6,8 @@ class Usuario:
         self.senha = senha
         self.lista_livros = []
 
-    def pega_emprestar(self,livro):
-        if len(self.lista_livros) < self.MAX_EMPRESTIMO:
+    def pegar_emprestado(self,livro):
+        if len(self.lista_livros) == self.MAX_EMPRESTIMO:
+            return 'Limite de Empréstimo atingido.'
+        
+        self.lista_livros.append(livro.nome)
