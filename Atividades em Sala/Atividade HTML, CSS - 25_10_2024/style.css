@@ -1,0 +1,63 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1 1 1;
+    Grid-template-columns: 100px 100px 100px;
+    background-color: rgb(16, 103, 143);
+    padding: 100px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.grid-item {
+    background-color: rgb(255, 255, 255);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(185, 3, 79);
+    color: rgb(43, 209, 140);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.item1 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    background-color: rgb(255, 255, 255);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(185, 3, 79);
+    color: rgb(43, 209, 140);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.item8 {
+    grid-area: 1/1/1/1;
+    background-color: rgb(255, 255, 255);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(185, 3, 79);
+    color: rgb(43, 209, 140);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.botao {
+    flex: 1;
+    margin: 5px;
+    background-color: #f1a129;
+    border: none;
+    color: rgb(128, 19, 19);
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+
+menu:hover {
+    background-color: green;
+}
