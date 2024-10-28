@@ -1,0 +1,171 @@
+body {
+    margin: 0%;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    padding: 10px;
+    background-color: black;
+    align-items: center;
+    width: 100%;
+}
+
+.header img { 
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.header a {
+    flex: 1;
+    margin: 5px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sessao1 {
+    background-image: url('../Atividade/imagine_imagens/31165811396374.jpg');
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
+
+.frame1 {
+    width: 280px;
+    height: 610px;
+    padding: 1%;
+    background-color:transparent;
+    position: relative; 
+    box-shadow: 15px 30px 30px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    left: 40%;
+    top: 20%;
+}
+
+.frame1 p {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 2;
+    padding: 10px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.frame1 a {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    padding: 10px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.frame1 img {
+    position: relative;
+    border-radius: 50%; 
+    height: 130px;
+    width: 150px;
+    background-color: white;
+    left: 20%;
+}
+
+.frame1 h1 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    text-align: center;
+}  
+.frame1 h2 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    text-align: center;
+}  
+
+.sessao2 {
+    background-color: white;
+    height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1 1 1 1 1;
+    Grid-template-columns: 100px 100px 100px;
+    column-gap: 135px;
+    row-gap: 30px;
+    position: relative;
+    top: 5%;
+    left: 30%;
+}
+
+.item1 {
+    background-image: url('../Atividade/imagine_imagens/lixo-espacial.jpg');
+    
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.item2 {
+    background-image: url('../Atividade/imagine_imagens/arte.jpg');
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.item3 {
+    background-image: url('../Atividade/imagine_imagens/438566-rocket-Launch-space-spaceship-night-NASA.jpg');
+    background-size: cover;
+    align-items: center;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    width: 435px;
+    height: 200px;
+}
+
+.item4 {
+    background-image: url('../Atividade/imagine_imagens/satelite.jpg');
+    background-size: cover;
+    grid-row: 1;
+    width: 200px;
+    height: 200px;
+}
+
+.item5 {
+    background-image: url('../Atividade/imagine_imagens/kennedy_center.jpg');
+    background-size: cover;
+    grid-row: 2;
+    grid-column: 3;
+    width: 200px;
+    height: 200px;
+}
+
+.sessao3 {
+    background-image: url('../Atividade/imagine_imagens/Space-Art-Wallpaper-space-7076586-1920-1200.jpg');
+    height: 600px;
+    width: 50%;
+    background-size: cover; 
+    background-position: right;
+}
+
+.frame3 {
+    width: 100%;
+    height: 600px;
+    background-color: black;
+    position: relative; 
+    left: 100%;
+}
