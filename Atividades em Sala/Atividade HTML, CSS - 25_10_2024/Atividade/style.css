@@ -85,7 +85,7 @@ body {
     position: relative;
     height: 130px;
     width: 170px;
-    left: 5%;
+    left: 4%;
 }
 
 .frame1 h1 {
@@ -103,7 +103,7 @@ body {
 
 .sessao2 {
     background-color: white;
-    height: 890px;
+    height: 720px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -255,42 +255,74 @@ body {
 }
 
 .sessao3 {
-    background-image: url('../Atividade/imagine_imagens/black_hole.gif');
-    height: 600px;
-    width: 50%;
-    background-size: cover; 
-    background-position: right;
-}
-
-.frame3 {
-    width: 100%;
-    height: 600px;
     background-color: black;
-    position: relative; 
-    left: 100%;
+    height: 1200px;
+    width: 100%;
+    background-size: cover; 
 }
 
-.frame3 h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: x-large;
+.sessao3 h1 {
     color: white;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: relative;
+    top: 3%;
     margin-left: 45%;
-    top: 2%;
 }
 
-.frame3 h2 {
-    color: blueviolet;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-    top: 1%;
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    column-gap: 60px;
+    row-gap: 100px;
     position: relative;
-    margin-left: 5%
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    top: 5%;
 }
 
-.frame3 p {
+.item6 {
+    background-image: url('../Atividade/imagine_imagens/black_hole.gif');
+    background-size: cover;
+    background-position-x: 16.8cm;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+}
+
+.item7 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: medium;
     color: white;
-    margin-left: 5%
+    text-align: justify;
+    font-size: medium;
+}
+
+.item7 h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blueviolet;
+    left: -45%;
+}
+
+.item8 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: justify;
+    font-size: medium;
+}
+
+.item8 h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(252, 35, 35);
+    left: -45%;
+}
+
+.item9 {
+    background-image: url('../Atividade/imagine_imagens/sol.gif');
+    background-size: cover;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
 }
