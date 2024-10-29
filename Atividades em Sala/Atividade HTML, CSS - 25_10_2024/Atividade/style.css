@@ -59,7 +59,7 @@ body {
     position: relative; 
     box-shadow: 15px 30px 30px rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    left: 43%;
+    left: 36.5%;
     top: 20%;
     padding: 50px;
 }
@@ -103,7 +103,7 @@ body {
 
 .sessao2 {
     background-color: white;
-    height: 700px;
+    height: 890px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -113,8 +113,9 @@ body {
 .sessao2 h1 {
     position: relative; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 47%;
+    margin-left: 46.8%;
     margin-top: 1%;
+    color: blue;
 }
 
 .grid-container {
@@ -124,7 +125,7 @@ body {
     row-gap: 20px;
     position: relative;
     top: 1%;
-    left: 25%;
+    left: 21%;
     width: 50%;
 }
 
@@ -137,7 +138,7 @@ body {
 }
 
 .grid-container h2 {
-    color: rgb(214, 189, 189);
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
     position: relative;
@@ -149,25 +150,39 @@ body {
     background-image: url('../Atividade/imagine_imagens/lixo-espacial.jpg');
     background-size: cover;
     width: 300px;
-    height: 250px;
+    height: 300px;
 }
 
 .item1 h1 {
-    margin-top: 5%;
-    margin-left: -50%;
+    font-size: larger;
+    margin-top: 4%;
+    margin-left: -60%;
+}
+
+.item1 h2 {
+    position: relative;
+    color: rgb(255, 255, 255);
+    margin-top: -64%;
+    text-shadow: 5px 5px 5px black;
 }
 
 .item2 {
     background-image: url('../Atividade/imagine_imagens/arte.jpg');
     background-size: cover;
     width: 300px;
-    height: 250px;
-
+    height: 300px;
+    text-shadow: 5px 5px 5px black;
 }
 
 .item2 h1 {
     margin-top: 5%;
-    margin-left: -40%;
+    margin-left: -48%;
+}
+
+.item2 h2 {
+    position: relative;
+    color: rgb(255, 255, 255);
+    margin-top: -64%;
 }
 
 .item3 {
@@ -175,44 +190,68 @@ body {
     background-size: cover;
     align-items: center;
     width: 300px;
-    height: 250px;
-    color: rgb(255, 81, 0);
+    height: 300px;
+    text-shadow: 5px 5px 5px black;
 }
 
 .item3 h1 {
-    margin-top: 5%;
-    margin-left: -50%;
+    margin-top: 4%;
+    margin-left: -52%;
 }
 
 .item3 h2 {
-    color: aqua;
+    color: white;
+    margin-top: 6%;
+    max-width: 260px;
+    margin-top: -64%;
+    margin-left: -1%;
 }
 
 .item4 {
     background-image: url('../Atividade/imagine_imagens/satelite.jpg');
     background-size: cover;
-    width: 300px;
-    height: 250px;
+    width: 620px;
+    height: 300px;
+    text-shadow: 5px 5px 5px black;
 }
 
 .item4 h1 {
-    margin-top: 5%;
-    margin-left: -70%;
+    margin-top: 2%;
+    margin-left: -90%;
+}
+
+.item4 h2 {
+    color: white;
+    position: relative;
+    max-width: 300px;
+    margin-top: -30.9%;
+    margin-left: -3%;
 }
 
 .item5 {
     background-image: url('../Atividade/imagine_imagens/kennedy_center.jpg');
     background-size: cover;
     width: 300px;
-    height: 250px;
-    color: rgb(255, 255, 255); 
+    height: 300px;
     top: 70%;
-    grid-column: 2;
+    grid-column-start: 3;
+    text-shadow: 5px 5px 5px black;
 }
 
 .item5 h1 {
-    margin-top: 5%;
-    margin-left: -25%;
+    margin-top: 4%;
+    margin-left: -32%;
+    font-size: larger;
+}
+
+.item5 h2 {
+    font-size: medium;
+    position: relative;
+    color: white;
+    top: 70%;
+    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    margin-top: -72%;
+    margin-left: -3%;
 }
 
 .sessao3 {
@@ -231,19 +270,27 @@ body {
     left: 100%;
 }
 
-
-/* .sessao4 {
-    background-color: rgb(151, 22, 22);
-    height: 250px;
-    width: 100%;
-    background-size: cover; 
-    background-position: center;
+.frame3 h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    color: white;
+    position: relative;
+    margin-left: 45%;
+    top: 2%;
 }
 
-.sessao4 h1 {
-
+.frame3 h2 {
+    color: blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    top: 1%;
+    position: relative;
+    margin-left: 5%
 }
 
-.sessao4 h2 {
-
-} */
+.frame3 p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color: white;
+    margin-left: 5%
+}
