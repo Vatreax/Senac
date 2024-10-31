@@ -1,23 +1,21 @@
 from livros import Livro
 from tarefa import Usuario
 from biblioteca import Biblioteca
+import mysql.connector
 
-rafaela = Usuario('Rafaela','tafarela123@gmail.com','rafarilda321')
+conexao = mysql.connector.connect(
+    host ='10.28.2.39',
+    user='suporte',
+    password='suporte',
+    database='biblioteca'
+)
 
-dom_casmurro = Livro("Dom Casmurro", "Machado de Assis", "Romance","1")
-incidente_antares = Livro("Incidente em Antares", "Érico Verissimo", "Ficção Cientifica","2")
-turma_da_monica = Livro("Turma da Mônica", "Mauricio de Souza", "Literatura Infantil","3")
-poliana = Livro("Poliana", "Harry", "Romance","4")
+cursor = conexao.cursor()
 
+cursor.execute("insert into livro(titulo, autor, genero, status,codigo) values ('o pequeno principe', 'Enzo','fantasia', 'disponivel',1)")
+cursor.execute("insert into usuario(nome,cpf,telefone) values ('Rafaela','1234567891011','67912378666')")
+cursor.execute("update livro set usuario = 1 where id_livro = 1")
+# cursor.execute("delete from livro where id_livro = 1")
 
-Biblioteca.Acervo.append(dom_casmurro)
-Biblioteca.Acervo.append(incidente_antares)
-
-
-rafaela.pegar_emprestado(dom_casmurro)
-rafaela.pegar_emprestado(incidente_antares)
-
-dom_casmurro.emprestimo_livro(rafaela)
-incidente_antares.emprestimo_livro(rafaela)
-# print(vars(rafaela))
-# print(vars(dom_casmurro))
+conexao.commit()
+print(dir(conexao))
