@@ -163,5 +163,3 @@ select * from cliente join genero on cliente.genero = genero.id_gen;
 select saldo from cliente;
 select valor_saque from saque;
 select valor_deposito from deposito;
-
-
