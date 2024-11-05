@@ -23,12 +23,6 @@ class Livro:
         self.status = 'Disponivel'
 
 
-filipos = Usuario(
-    nome="Filipe",
-    email="filipe_limoes@gmail.com",
-    senha="amigo_dos_cavalos"
-)
-
 
 # while True:
 #     op = input("""
