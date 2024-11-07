@@ -1,6 +1,7 @@
 import mysql.connector
-from atividade import Database
+from main import Database
 from usuario import usuario
+from livros import Livro
 
 class biblioteca:
     def __init__(self, titulo, autor, genero, status, codigo):
@@ -33,11 +34,3 @@ class biblioteca:
         self.usuario = None
         self.status = 'Disponivel'
 
-class Controller_Livro:
-     def cadastrar_livro():
-        db = Database()
-        db.conectar()
-        livro = biblioteca()
-        livro.create()
-
-        db.cursor.execute()
