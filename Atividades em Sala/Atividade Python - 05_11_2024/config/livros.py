@@ -10,5 +10,10 @@ class Livro:
 
     def create(self):
         return f'insert into livro(titulo, autor, genero, status, codigo) values("{self.titulo}", "{self.autor}", "{self.genero}", "{self.status}", "{self.cod_livro}")'
-        
+    
+    def search(self):
+        return f'select * from livro where codigo = "{self.cod_livro}")'
+    
+    def update(self):
+        return f''
        

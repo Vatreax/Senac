@@ -1,0 +1,35 @@
+img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: -1;
+    height: 800px;
+    width: 800px;
+}
+
+h1 {
+    position: relative;
+    top: 100px;
+    left: 250px;
+    max-width: 400px;
+    color: darkgoldenrod;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    left: 80%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    list-style: none;
+    min-width: 160px;
+    z-index: 1;
+}

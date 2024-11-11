@@ -1,4 +1,4 @@
-from livros import Livro
+from ..config
 from main import Database
 
 class Controller_Livro:

@@ -1,6 +1,6 @@
 import mysql.connector
-from atividade import connect_sql
-from biblioteca import biblioteca
+from main import connect_sql
+from config import biblioteca
 
 class usuario:
     def __init__(self,nome,cpf,telefone):
