@@ -1,7 +1,10 @@
-from ..config
-from main import Database
+from models.livros import Livro
+from models.database import Database
+
+
 
 class Controller_Livro:
+
    def cadastrar_livro(self):
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
@@ -18,8 +21,9 @@ class Controller_Livro:
       procurar = Database("10.28.2.39","suporte","suporte","biblioteca")
       procurar.conectar()
 
-      
-      procurar.cursor.execute('Select * from livro where codigo = 15')
+      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
+
+      procurar.cursor.execute(livros.read())
 
       print(procurar.cursor.fetchall())
 
@@ -29,8 +33,9 @@ class Controller_Livro:
       atualizar = Database("10.28.2.39","suporte","suporte","biblioteca")
       atualizar.conectar()
 
+      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
 
-      atualizar.cursor.execute("update livro set titulo = 'um titulo com update' where codigo = 15")
+      atualizar.cursor.execute(livros.update())
       atualizar.conexao.commit()
       atualizar.desconectar()
 
@@ -39,7 +44,9 @@ class Controller_Livro:
       excluindo = Database("10.28.2.39","suporte","suporte","biblioteca")
       excluindo.conectar()
 
-      excluindo.cursor.execute("delete from livro where codigo = 15")
+      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
+
+      excluindo.cursor.execute(livros.delete())
       excluindo.conexao.commit()
       excluindo.desconectar()
 
