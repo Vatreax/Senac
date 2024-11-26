@@ -2,15 +2,17 @@ import mysql.connector
 from main import Database
 
 class Usuario:
-    def __init__(self,nome,cpf,telefone):
+    def __init__(self,nome,cpf,senha,telefone):
         self.nome = nome
         self.cpf = cpf
+        self.senha = senha
         self.telefone = telefone
 
-    def usando_usuario(self):
+    def cadastrar_usuario(self):
         self.usuario_atributos = mysql.DataFrame({
             'nome':self.nome,
             'cpf':self.cpf,
+            'senha':self.senha,
             'telefone':self.telefone
             })
         

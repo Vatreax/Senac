@@ -29,27 +29,6 @@ class Controller_Livro:
 
       procurar.desconectar()
    
-   def atualizar_Livro(self):
-      atualizar = Database("10.28.2.39","suporte","suporte","biblioteca")
-      atualizar.conectar()
 
-      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
-
-      atualizar.cursor.execute(livros.update())
-      atualizar.conexao.commit()
-      atualizar.desconectar()
-
-   
-   def excluir_Livro(self):
-      excluindo = Database("10.28.2.39","suporte","suporte","biblioteca")
-      excluindo.conectar()
-
-      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
-
-      excluindo.cursor.execute(livros.delete())
-      excluindo.conexao.commit()
-      excluindo.desconectar()
-
-      
 op = Controller_Livro()
 op.procurar_Livro()

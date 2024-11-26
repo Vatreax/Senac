@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>666</height>
+    <width>398</width>
+    <height>526</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>110</y>
+      <x>10</x>
+      <y>10</y>
       <width>381</width>
-      <height>341</height>
+      <height>400</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -106,6 +106,33 @@
           <number>5</number>
          </property>
          <item>
+          <widget class="QLabel" name="Senha">
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Senha</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="Senha_Input">
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>***********</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_2">
            <property name="font">
             <font>
@@ -178,8 +205,8 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>460</y>
+      <x>10</x>
+      <y>420</y>
       <width>381</width>
       <height>61</height>
      </rect>
@@ -222,7 +249,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>398</width>
      <height>21</height>
     </rect>
    </property>

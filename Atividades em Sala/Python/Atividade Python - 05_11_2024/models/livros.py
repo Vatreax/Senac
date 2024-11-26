@@ -4,8 +4,6 @@ class Livro:
         self.titulo = titulo
         self.genero = genero
         self.cod_livro = cod_livro
-        self
-
         self.status= 'Disponivel'
         self.usuario = None
 
@@ -21,4 +19,5 @@ class Livro:
     def delete(self):
         return f'delete from livro where codigo = {self.cod_livro}'
     
+
 Livro.__name__ = "Livro"

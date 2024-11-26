@@ -14,6 +14,7 @@ class Controller_Usuario:
       db.conexao.commit()
       db.desconectar()
 
+
    def procurar_usuario(self):
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
@@ -25,29 +26,6 @@ class Controller_Usuario:
       db.conexao.commit()
       db.desconectar()
 
-   def update_usuario(self):
-      db = Database("10.28.2.39","suporte","suporte","biblioteca")
-      db.conectar()
-      
-      usuarios = Usuario('','1122334455','67991295341')
-
-      db.cursor.execute(usuarios.update())
-      db.conexao.commit()
-      db.desconectar()
-
-   def deletar_usuario(self):
-      db = Database("10.28.2.39","suporte","suporte","biblioteca")
-      db.conectar()
-      
-      usuarios = Usuario('','1122334455','')
-
-      db.cursor.execute(usuarios.delete())
-      db.conexao.commit()
-      db.desconectar()
 
 op = Controller_Usuario()
-op.cadastrar_usuario()
 op.procurar_usuario()
-# op.update_usuario()
-# op.procurar_usuario()
-# op.deletar_usuario()
