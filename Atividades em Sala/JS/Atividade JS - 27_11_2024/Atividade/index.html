@@ -8,35 +8,20 @@
     <script src=""></script>
 </head>
 <body>
-    <select name="consulta" class="numero do processo" required>
-        <option value="número_processo">Número do Processo</option>
-        <option value="nome_parte">Nome da Parte</option>
-        <option value="documento_parte">Documento da Parte</option>
-        <option value="advogado">Nome do Advogado</option>
-        <option value="oab">OAB</option>
-        <option value="carta_precatoria">N° da Carta Precatória na Ordem</option>
-        <option value="delegacia">N° do Documento da Delegacia</option>
-        <option value="cda">CDA</option>
-    </select>
 
 <!--  -->
 
-    <input type="text" class="input1" oninput="digitado">
+    <input type="text" class="input" oninput="digitado()">
+    <span class="span-erro" style="display: none;">Invalido</span>
+    <span class="span-certo" style="display: none;">Valido</span>
+    
 
-    <span class="span-erro" style="display: none;">Deu erro boys</span>
-    <span class="span-deu-certo" style="display: none;">Deu certo boys</span>
-
-    <input type="text" maxlength="25" size="30" value="8.12" id="input2" class="unificado" disabled="disabled"></input>
-    <input type="text" id="input3">
+    <input type="text" maxlength="25" size="30" value="8.12" class="input2" disabled="disabled"></input>
+    <input type="text" class="input3">
     <a class="informado">i</a>
 
 <!--  -->
 
-    <select name="comarcar" class="comarcado">
-        <option value="marcas">Todas as Marcas</option>
-    </select>
-
-    <button class="consultar">Consultar</button>
 
 </body>
 </html>
