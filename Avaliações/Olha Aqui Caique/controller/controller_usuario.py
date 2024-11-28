@@ -4,11 +4,11 @@ from models.database import Database
 
 class Controller_Usuario:
 
-   def cadastrar_usuario(self):
+   def cadastrar_usuario(self, informacoesUsuario):
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
       
-      usuarios = Usuario('Jão do Bão','1122334455','67991295341')
+      usuarios = Usuario(informacoesUsuario['nome'],informacoesUsuario['cpf'],informacoesUsuario['senha'],informacoesUsuario['telefone'])
 
       db.cursor.execute(usuarios.create())
       db.conexao.commit()

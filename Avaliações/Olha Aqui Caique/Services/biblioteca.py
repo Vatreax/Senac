@@ -1,8 +1,9 @@
 import mysql.connector
 from main import Database
-from usuario import usuario
-from livros import Livro
+from models.usuario import usuario
+from models.livros import Livro
 from controller.controller_admin import Controller_Admin
+from controller.controller_usuario import Controller_Usuario
 
 class Biblioteca:
 
@@ -26,3 +27,5 @@ class Biblioteca:
         self.usuario = None
         self.status = 'Disponivel'
 
+    def cadastrarUsuario(informacoesUsuario):
+        Controller_Usuario.cadastrar_usuario(informacoesUsuario)

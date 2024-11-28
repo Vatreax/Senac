@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 
 from models.livros import Livro
 from models.usuario import Usuario
+from Services.biblioteca import Biblioteca
 
 
 
@@ -69,13 +70,16 @@ Opções
                 self.close()
 
             def clickedCadastrar(self):
-                nome = self.Nome.text()
-                senha = self.Senha.text()
-                confirmar_senha = self.Confirma_Senha.text()
-                cpf = self.Cpf.text()
-                telefone = self.Telefone.text()
+                informacoesUsuario = {
+                    "nome" : self.Nome.text(),
+                    "senha" : self.Senha.text(),
+                    "confirmar_senha" : self.Confirma_Senha.text(),
+                    "cpf" : self.Cpf.text(),
+                    "telefone" : self.Telefone.text(),
+                }
                 aviso = self.aviso
 
+                biblioteca.cadastrarUsuario(informacoesUsuario)
                 if nome == "" or senha == "" or confirmar_senha == "" or cpf == "":
                     aviso.setStyleSheet("color:red")
                     aviso.setText("Todos os Campos Devem Ser Preenchidos!")
@@ -84,11 +88,11 @@ Opções
                     aviso.setStyleSheet("")
                     aviso.setText("")
                     print(f"""
-            Nome: {nome}
-            Senha: {senha}
-            Confirmar Senha: {confirmar_senha}
-            CPF: {cpf}
-            Telefone: {telefone}""")
+            Nome: {informacoesUsuario['nome']}
+            Senha: {informacoesUsuario['senha']}
+            Confirmar Senha: {informacoesUsuario['confirmar_senha']}
+            CPF: {informacoesUsuario['cpf']}
+            Telefone: {informacoesUsuario['telefone']}""")
                 
         if __name__ == '__main__':
             app = QApplication(sys.argv)
