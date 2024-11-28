@@ -6,6 +6,7 @@ create table usuario(
 	id_usuario int auto_increment primary key,
     nome varchar(50),
     cpf varchar(13) unique,
+    senha varchar(50),
     telefone varchar(20)
 );
 
@@ -14,7 +15,7 @@ create table livro(
 	titulo varchar(50),
     autor varchar(50),
     genero varchar(50),
-    status varchar(50),
+    status enum('Indisponivel','Disponivel'),
     codigo int,
     usuario int,
     foreign key (usuario) references usuario(id_usuario)
