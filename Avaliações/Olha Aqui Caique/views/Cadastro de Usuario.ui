@@ -118,7 +118,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="Senha_Input">
+          <widget class="QLineEdit" name="Senha_2">
            <property name="font">
             <font>
              <pointsize>15</pointsize>
@@ -145,7 +145,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="CPF">
+          <widget class="QLineEdit" name="Cpf">
            <property name="font">
             <font>
              <pointsize>15</pointsize>
@@ -216,7 +216,7 @@
       <number>25</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="Cancelar">
        <property name="maximumSize">
         <size>
          <width>150</width>
@@ -229,7 +229,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="Cadastrar">
        <property name="maximumSize">
         <size>
          <width>150</width>
