@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>401</width>
-    <height>304</height>
+    <height>318</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>381</width>
-      <height>175</height>
+      <height>194</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -123,13 +123,20 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="aviso">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
+      <y>210</y>
       <width>381</width>
       <height>61</height>
      </rect>

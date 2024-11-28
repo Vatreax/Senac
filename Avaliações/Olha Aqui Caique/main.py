@@ -2,12 +2,10 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
-# from models.livros import Livro
-# from models.usuario import Usuario
-# livrin = Livro('auto','titulo','','')
-# usando = Usuario('Tafarel','123456789','6799132323')
-# print(vars(livrin))
-# print(vars(usando))
+from models.livros import Livro
+from models.usuario import Usuario
+
+
 
 while True:
     op = input("""
@@ -20,7 +18,7 @@ Opções
     - """)
     
     if op == "1":
-        ui_file = "Avaliações/Atividade Python - 05_11_2024/views/Cadastro de Livro.ui"
+        ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Livro.ui"
 
         class MainWindow(QMainWindow):
             def __init__(self):
@@ -56,7 +54,7 @@ Opções
             sys.exit(app.exec_())
 
     if op == "2":
-        ui_file = "Avaliações/Atividade Python - 05_11_2024/views/Cadastro de Usuario.ui"
+        ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Usuario.ui"
 
         class MainWindow(QMainWindow):
             def __init__(self):
@@ -73,14 +71,24 @@ Opções
             def clickedCadastrar(self):
                 nome = self.Nome.text()
                 senha = self.Senha.text()
+                confirmar_senha = self.Confirma_Senha.text()
                 cpf = self.Cpf.text()
                 telefone = self.Telefone.text()
+                aviso = self.aviso
 
-                print(f"""
-        Nome: {nome}
-        Senha: {senha}
-        CPF: {cpf}
-        Telefone: {telefone}""")
+                if nome == "" or senha == "" or confirmar_senha == "" or cpf == "":
+                    aviso.setStyleSheet("color:red")
+                    aviso.setText("Todos os Campos Devem Ser Preenchidos!")
+
+                else:
+                    aviso.setStyleSheet("")
+                    aviso.setText("")
+                    print(f"""
+            Nome: {nome}
+            Senha: {senha}
+            Confirmar Senha: {confirmar_senha}
+            CPF: {cpf}
+            Telefone: {telefone}""")
                 
         if __name__ == '__main__':
             app = QApplication(sys.argv)
@@ -88,8 +96,52 @@ Opções
             window.show()
             sys.exit(app.exec_())
 
+    if op == "3":
+        ui_file = "Avaliações/Olha Aqui Caique/views/emprestimo.ui"
+
+        class MainWindow(QMainWindow):
+            def __init__(self):
+                super().__init__()
+                uic.loadUi(ui_file, self)
+                self.Registrar.clicked.connect(self.clickedRegistrar)
+                self.Cancelar.clicked.connect(self.clickedCancelar)
+
+            
+            def clickedCancelar(self):
+                print("Cancelado")
+                self.close()
+
+            def clickedRegistrar(self):
+                autor = self.Autor.text()
+                titulo = self.Titulo.text()
+                genero = self.Genero.text()
+                codigo = self.Codigo.text()
+                disponibilidade = "indisponivel"
+                aviso = self.aviso
+               
+
+                if autor == "" or titulo == "" or genero == "" or codigo == "":
+                    aviso.setStyleSheet("color:red")
+                    aviso.setText("Todos os Campos Devem Ser Preenchidos!")
+
+                else:
+                    aviso.setStyleSheet("")
+                    aviso.setText("")
+                    print(f"""
+                autor: {autor}
+                titulo: {titulo}
+                genero: {genero}
+                codigo: {codigo}
+                disponibilidade: {disponibilidade}""")
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv)
+            window = MainWindow()
+            window.show()
+            sys.exit(app.exec_())
+
     if op == "4":
-        ui_file = "Avaliações/Atividade Python - 05_11_2024/views/senha.ui"
+        ui_file = "Avaliações/Olha Aqui Caique/views/senha.ui"
 
         class MainWindow(QMainWindow):
             def __init__(self):

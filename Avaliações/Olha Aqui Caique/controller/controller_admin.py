@@ -1,8 +1,8 @@
-from ..models.admin import Admin
-from ..models.livros import Livro
-from ..models.database import Database
-from ..models.emprestimo import Emprestimo
-from ..models.usuario import Usuario
+from models.admin import Admin
+from models.livros import Livro
+from models.database import Database
+from models.emprestimo import Emprestimo
+from models.usuario import Usuario
 
 # Cadastrar Usuario
 # Cadastrar Livro
