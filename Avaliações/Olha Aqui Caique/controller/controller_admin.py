@@ -53,3 +53,5 @@ class Controller_Admin:
       excluindo.cursor.execute(livros.delete())
       excluindo.conexao.commit()
       excluindo.desconectar()
+
+Controller_Admin.__name__ = 'Controller_Admin'

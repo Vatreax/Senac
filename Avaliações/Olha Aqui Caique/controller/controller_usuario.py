@@ -27,5 +27,4 @@ class Controller_Usuario:
       db.desconectar()
 
 
-op = Controller_Usuario()
-op.procurar_usuario()
+Controller_Usuario.__name__ = 'Controller_Usuario'

@@ -1,6 +1,6 @@
 import mysql.connector
-from main import Database
-from models.usuario import usuario
+# from main import Database
+from models.usuario import Usuario
 from models.livros import Livro
 from controller.controller_admin import Controller_Admin
 from controller.controller_usuario import Controller_Usuario
@@ -13,7 +13,7 @@ class Biblioteca:
 
         self.livro_atributos = mysql.DataFrame()
         
-    def emprestimo_livro(self, usuario: usuario):
+    def emprestimo_livro(self, usuario: Usuario):
         if self.status!= 'disponivel':
             return
 
@@ -26,6 +26,8 @@ class Biblioteca:
         
         self.usuario = None
         self.status = 'Disponivel'
-
+    @staticmethod
     def cadastrarUsuario(informacoesUsuario):
-        Controller_Usuario.cadastrar_usuario(informacoesUsuario)
+        Controller_Usuario().cadastrar_usuario(informacoesUsuario)
+
+Controller_Admin.__name__ = 'Biblioteca'
