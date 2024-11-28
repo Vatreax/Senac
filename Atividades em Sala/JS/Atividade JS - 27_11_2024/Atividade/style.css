@@ -1,29 +1,8 @@
-.informado {
-    font-family: "Segoe UI", "Selawik", Tahoma, Verdana, Arial, sans-serif;
-    position: relative;
-    padding-left: 4px;
-    padding-top: 12px;
-    font-size: 16px;
-    vertical-align: top;
-    color: #495057;
+.message {
+  font-size: 12px;
+  color: red;
 }
 
-.unificado {
-    position: relative;
-    height:5px;
-    width: 26px;
-    padding: 0.375rem 0.75rem;
-    line-height: 1.5;
-    color: #495057;
-    background-image: none;
-    background-clip: padding-box;
-    border-radius: 0;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
-.consultar {
-    background-color: orange;
-    border: none;
-    font-size: 16px;
-    align-items: center;
+.valid {
+  color: green;
 }

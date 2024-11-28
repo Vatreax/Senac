@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src=""></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validação de Input</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <form>
+    <label for="digite">Digite um valor:</label>
+    <input type="text" id="digite" name="digite" placeholder="1234567-8.12.1234" oninput="validarInput()" />
+    <span id="message" class="message"></span>
+  </form>
 
-<!--  -->
-
-    <input type="text" class="input" oninput="digitado()">
-    <span class="span-erro" style="display: none;">Invalido</span>
-    <span class="span-certo" style="display: none;">Valido</span>
-    
-
-    <input type="text" maxlength="25" size="30" value="8.12" class="input2" disabled="disabled"></input>
-    <input type="text" class="input3">
-    <a class="informado">i</a>
-
-<!--  -->
-
-
+  <script src="script.js"></script>
 </body>
 </html>
