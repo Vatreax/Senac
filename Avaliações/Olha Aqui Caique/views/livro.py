@@ -17,18 +17,27 @@ class MainWindow(QMainWindow):
         self.close()
 
     def clickedCadastro(self):
-        autor = self.Autor.text()
-        titulo = self.Titulo.text()
-        genero = self.Genero.text()
-        codigo = self.Codigo.text()
-        disponibilidade = self.Disponibilidade.currentText()
+        informacoesLivro = {
+            "autor": self.Autor.text(),
+            "titulo": self.Titulo.text(),
+            "genero": self.Genero.text(),
+            "codigo": self.codigo.text(),
+            "disponibilidade": self.Disponibilidade.text()
+        }
 
-        print(f"""
-autor: {autor}
-titulo: {titulo}
-genero: {genero}
-codigo: {codigo}
-disponibilidade: {disponibilidade}""")
+
+        if informacoesLivro['autor'] == "" or informacoesLivro["titulo"] == "" or informacoesLivro["disponibilidade"] == "" or informacoesLivro["codigo"] == "" or informacoesLivro["genero"] == "":
+            aviso.setStyleSheet("color:red")
+            aviso.setText("Todos os Campos Devem Ser Preenchidos!")
+
+        else:
+
+            print(f"""
+    autor: {autor}
+    titulo: {titulo}
+    genero: {genero}
+    codigo: {codigo}
+    disponibilidade: {disponibilidade}""")
 
 
 if __name__ == '__main__':
