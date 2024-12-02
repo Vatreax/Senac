@@ -1,3 +1,4 @@
+import _mysql_connector
 class Livro:
     def __init__(self, autor, titulo, genero, cod_livro):
         self.autor = autor
@@ -6,6 +7,14 @@ class Livro:
         self.cod_livro = cod_livro
         self.status= 'Disponivel'
         self.usuario = None
+
+    def cadastrarLivro():
+                self.usuario_atributos = mysql.DataFrame({
+            'nome':self.nome,
+            'cpf':self.cpf,
+            'senha':self.senha,
+            'telefone':self.telefone
+            })
 
     def create(self):
         return f'insert into livro(titulo, autor, genero, status, codigo) values("{self.titulo}", "{self.autor}", "{self.genero}", "{self.status}", {self.cod_livro})'

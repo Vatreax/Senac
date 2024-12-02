@@ -1,15 +1,16 @@
 from models.livros import Livro
 from models.database import Database
+from models.livros import *
 
 
 
 class Controller_Livro:
 
-   def cadastrar_livro(self):
+   def cadastrar_livro(self, informacoesLivro):
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
       
-      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
+      livros = Livro()
 
       db.cursor.execute(livros.create())
       db.conexao.commit()
@@ -17,11 +18,11 @@ class Controller_Livro:
 
 
 
-   def procurar_Livro(self):
+   def procurar_Livro(self, informacoesLivro):
       procurar = Database("10.28.2.39","suporte","suporte","biblioteca")
       procurar.conectar()
 
-      livros = Livro("um autor ai","Um titulo ai", "trans?", "15" )
+      livros = Livro()
 
       procurar.cursor.execute(livros.read())
 

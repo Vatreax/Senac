@@ -1,10 +1,11 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
+from Services import biblioteca
 
 ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Livro.ui"
 
-class MainWindow(QMainWindow):
+class livrando_livro(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(ui_file, self)
@@ -24,6 +25,8 @@ class MainWindow(QMainWindow):
             "codigo": self.codigo.text(),
             "disponibilidade": self.Disponibilidade.text()
         }
+        aviso = self.aviso
+
 
 
         if informacoesLivro['autor'] == "" or informacoesLivro["titulo"] == "" or informacoesLivro["disponibilidade"] == "" or informacoesLivro["codigo"] == "" or informacoesLivro["genero"] == "":
@@ -31,17 +34,18 @@ class MainWindow(QMainWindow):
             aviso.setText("Todos os Campos Devem Ser Preenchidos!")
 
         else:
+            biblioteca.cadastrarLivro(informacoesLivro)
 
             print(f"""
-    autor: {autor}
-    titulo: {titulo}
-    genero: {genero}
-    codigo: {codigo}
-    disponibilidade: {disponibilidade}""")
+    autor: {informacoesLivro['autor']}
+    titulo: {informacoesLivro['titulo']}
+    genero: {informacoesLivro['genero']}
+    codigo: {informacoesLivro['codigo']}
+    disponibilidade: {informacoesLivro['disponibilidade']}""")
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = livrando_livro()
     window.show()
     sys.exit(app.exec_())
