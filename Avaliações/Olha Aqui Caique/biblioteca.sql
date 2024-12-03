@@ -25,6 +25,7 @@ create table emprestimo(
 	id_emprestimo int auto_increment primary key,
 	id_livro int,
     id_usuario int,
+    devolver boolean default false,
     foreign key (id_livro) references livro(id_livro),
     foreign key (id_usuario) references usuario(id_usuario)
 );

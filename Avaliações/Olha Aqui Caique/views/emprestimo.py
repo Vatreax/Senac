@@ -2,6 +2,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
+from Services.biblioteca import Biblioteca
 
 ui_file = "Avaliações/Olha Aqui Caique/views/emprestimo.ui"
 
@@ -11,7 +12,6 @@ class Emprestimo(QMainWindow):
         uic.loadUi(ui_file, self)
         self.Registrar.clicked.connect(self.clickedRegistrar)
         self.Cancelar.clicked.connect(self.clickedCancelar)
-
     
     def clickedCancelar(self):
         print("Cancelado")
@@ -21,28 +21,23 @@ class Emprestimo(QMainWindow):
         self.close()
 
     def clickedRegistrar(self):
-        autor = self.Autor.text()
-        titulo = self.Titulo.text()
-        genero = self.Genero.text()
-        codigo = self.Codigo.text()
-        disponibilidade = "indisponivel"
+        informacoesEmprestimo = {
+        'cpf': self.Cpf.text(),
+        'codigo': self.Codigo.text()
+        }
         aviso = self.aviso
-        
 
-        if autor == "" or titulo == "" or genero == "" or codigo == "":
+        if informacoesEmprestimo['cpf'] == "" or informacoesEmprestimo['codigo'] == "":
             aviso.setStyleSheet("color:red")
             aviso.setText("Todos os Campos Devem Ser Preenchidos!")
 
         else:
+            Biblioteca.verficarEmprestimo(informacoesEmprestimo)
             aviso.setStyleSheet("")
             aviso.setText("")
             print(f"""
-        autor: {autor}
-        titulo: {titulo}
-        genero: {genero}
-        codigo: {codigo}
-        disponibilidade: {disponibilidade}""")
-            
+        cpf: {informacoesEmprestimo['cpf']}
+        codigo: {informacoesEmprestimo['codigo']}""")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

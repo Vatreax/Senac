@@ -1,11 +1,16 @@
-from livros import Livro
-from usuario import Usuario
-
 class Emprestimo:
-    def __init__(self, id_livro, id_usuario):
-        self.id_livro = id_livro
-        self.id_usuario = id_usuario
+    def __init__(self, codigo, cpf):
+        self.codigo = codigo
+        self.cpf = cpf
     
-    def emprestado(self, id_livro):
-       return (f"SELECT status FROM livro WHERE id_livro = %s", (id_livro,))
+    @staticmethod
+    def emprestado(codigo):
+       return (f"SELECT status FROM livro WHERE codigo = {codigo}")
     
+    @staticmethod
+    def usuario(cpf):
+        return (f"SELECT id_usuario FROM usuario WHERE id_usuario = {cpf}")
+    
+    @staticmethod
+    def cadastrar(cpf, codigo):
+        return (f"Insert into emprestimo(cpf, codigo) values({cpf, codigo})")
