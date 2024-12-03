@@ -62,7 +62,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="Autor">
+      <widget class="QLineEdit" name="Cpf">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
