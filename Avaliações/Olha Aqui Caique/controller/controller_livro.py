@@ -10,19 +10,17 @@ class Controller_Livro:
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
       
-      livros = Livro(informacoesLivro['autor'], informacoesLivro['titulo'], informacoesLivro['cod_livro'])
+      livros = Livro(informacoesLivro['autor'], informacoesLivro['titulo'], informacoesLivro['genero'], informacoesLivro['codigo'])
 
       db.cursor.execute(livros.create())
       db.conexao.commit()
       db.desconectar()
 
-
-
    def procurar_Livro(self, informacoesLivro):
       procurar = Database("10.28.2.39","suporte","suporte","biblioteca")
       procurar.conectar()
 
-      livros = Livro()
+      livros = Livro(informacoesLivro['autor'], informacoesLivro['titulo'], informacoesLivro['codigo'])
 
       procurar.cursor.execute(livros.read())
 
@@ -30,6 +28,3 @@ class Controller_Livro:
 
       procurar.desconectar()
    
-
-op = Controller_Livro()
-op.procurar_Livro()

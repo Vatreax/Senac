@@ -2,7 +2,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
-from views.menu import Menu
+from views.menu import Menu_biblioteca
 
 
 
@@ -23,11 +23,10 @@ class Login_MainWindow(QMainWindow):
     def clickedEntrar(self):
         nome = self.Nome.text()
         senha = self.Senha.text()
-
-
         print(f"""
 Nome: {nome}
 Senha: {senha}
 """)
-        
-        
+        self.menu = Menu_biblioteca()
+        self.menu.show()
+        self.close()

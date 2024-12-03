@@ -2,6 +2,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
+
 ui_file = "Avaliações/Olha Aqui Caique/views/emprestimo.ui"
 
 class Emprestimo(QMainWindow):
@@ -14,6 +15,9 @@ class Emprestimo(QMainWindow):
     
     def clickedCancelar(self):
         print("Cancelado")
+        from views.menu import Menu_biblioteca
+        self.menu = Menu_biblioteca()
+        self.menu.show()
         self.close()
 
     def clickedRegistrar(self):

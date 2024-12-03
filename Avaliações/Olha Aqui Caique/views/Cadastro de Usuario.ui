@@ -270,7 +270,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Cancelar</string>
+        <string>Voltar</string>
        </property>
       </widget>
      </item>

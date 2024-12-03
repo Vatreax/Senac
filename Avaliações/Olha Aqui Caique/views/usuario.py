@@ -3,7 +3,8 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
 from Services.biblioteca import Biblioteca
-from views.menu import Menu
+
+
 
 ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Usuario.ui"
 
@@ -14,9 +15,11 @@ class Cadastro_Usuario(QMainWindow):
         self.Cadastrar.clicked.connect(self.clickedCadastrar)
         self.Cancelar.clicked.connect(self.clickedCancelar)
 
-    
     def clickedCancelar(self):
         print("Cancelado")
+        from views.menu import Menu_biblioteca
+        self.menu = Menu_biblioteca()
+        self.menu.show()
         self.close()
 
     def clickedCadastrar(self):
@@ -28,6 +31,7 @@ class Cadastro_Usuario(QMainWindow):
             "telefone" : self.Telefone.text(),
         }
         aviso = self.aviso
+        from views.menu import Menu_biblioteca
 
         
         if informacoesUsuario['nome'] == "" or informacoesUsuario['senha'] == "" or informacoesUsuario['confirmar_senha'] == "" or informacoesUsuario['cpf'] == "" or informacoesUsuario['telefone'] == "":
@@ -44,6 +48,7 @@ class Cadastro_Usuario(QMainWindow):
     Confirmar Senha: {informacoesUsuario['confirmar_senha']}
     CPF: {informacoesUsuario['cpf']}
     Telefone: {informacoesUsuario['telefone']}""")
-            self.close()
-            Menu()
-            
+
+        self.menu = Menu_biblioteca()
+        self.menu.show()
+        self.close()

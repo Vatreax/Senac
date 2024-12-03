@@ -1,7 +1,9 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
-from Services import biblioteca
+
+from Services.biblioteca import Biblioteca
+
 
 ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Livro.ui"
 
@@ -15,6 +17,9 @@ class livrando_livro(QMainWindow):
     
     def clickedCancelar(self):
         print("Cancelado")
+        from views.menu import Menu_biblioteca
+        self.menu = Menu_biblioteca()
+        self.menu.show()
         self.close()
 
     def clickedCadastro(self):
@@ -22,8 +27,8 @@ class livrando_livro(QMainWindow):
             "autor": self.Autor.text(),
             "titulo": self.Titulo.text(),
             "genero": self.Genero.text(),
-            "codigo": self.codigo.text(),
-            "disponibilidade": self.Disponibilidade.text()
+            "codigo": self.Codigo.text(),
+            "disponibilidade": self.Disponibilidade
         }
         aviso = self.aviso
 
@@ -34,8 +39,9 @@ class livrando_livro(QMainWindow):
             aviso.setText("Todos os Campos Devem Ser Preenchidos!")
 
         else:
-            biblioteca.cadastrarLivro(informacoesLivro)
-
+            Biblioteca.cadastrarLivro(informacoesLivro)
+            aviso.setStyleSheet("")
+            aviso.setText("")
             print(f"""
     autor: {informacoesLivro['autor']}
     titulo: {informacoesLivro['titulo']}

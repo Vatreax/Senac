@@ -5,11 +5,12 @@ def conectar():
     """Conecta ao banco de dados MySQL."""
     try:
         connection = mysql.connector.connect(
-            host='localhost',      # ou o host do seu banco de dados
+            host='10.28.2.39',      # ou o host do seu banco de dados
             database='biblioteca', # nome do banco de dados
-            user='seu_usuario',    # usuário do banco de dados
-            password='sua_senha'   # senha do banco de dados
+            user='suporte',    
+            password='suporte'  
         )
+
         if connection.is_connected():
             print("Conexão com o banco de dados foi bem-sucedida!")
             return connection

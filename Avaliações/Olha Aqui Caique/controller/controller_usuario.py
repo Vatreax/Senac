@@ -1,7 +1,6 @@
 from models.usuario import Usuario
 from models.database import Database
 
-
 class Controller_Usuario:
 
    def cadastrar_usuario(self, informacoesUsuario):
@@ -15,16 +14,16 @@ class Controller_Usuario:
       db.desconectar()
 
 
-   def procurar_usuario(self):
-      db = Database("10.28.2.39","suporte","suporte","biblioteca")
-      db.conectar()
+   # def procurar_usuario(self):
+   #    db = Database("10.28.2.39","suporte","suporte","biblioteca")
+   #    db.conectar()
       
-      usuarios = Usuario('','1122334455','')
+   #    usuarios = Usuario('','1122334455','')
 
-      db.cursor.execute(usuarios.read())
-      print(db.cursor.fetchall())
-      db.conexao.commit()
-      db.desconectar()
+   #    db.cursor.execute(usuarios.read())
+   #    print(db.cursor.fetchall())
+   #    db.conexao.commit()
+   #    db.desconectar()
 
 
 Controller_Usuario.__name__ = 'Controller_Usuario'
