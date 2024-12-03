@@ -3,6 +3,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
 from Services.biblioteca import Biblioteca
+from views.menu import Menu
 
 ui_file = "Avaliações/Olha Aqui Caique/views/Cadastro de Usuario.ui"
 
@@ -43,3 +44,6 @@ class Cadastro_Usuario(QMainWindow):
     Confirmar Senha: {informacoesUsuario['confirmar_senha']}
     CPF: {informacoesUsuario['cpf']}
     Telefone: {informacoesUsuario['telefone']}""")
+            self.close()
+            Menu()
+            

@@ -6,7 +6,6 @@ from models.livros import Livro
 from models.usuario import Usuario
 
 from views.login import Login_MainWindow
-from views.usuario import Cadastro_Usuario
 
 
 

@@ -1,0 +1,55 @@
+import mysql.connector
+from mysql.connector import Error
+
+def conectar():
+    """Conecta ao banco de dados MySQL."""
+    try:
+        connection = mysql.connector.connect(
+            host='localhost',      # ou o host do seu banco de dados
+            database='biblioteca', # nome do banco de dados
+            user='seu_usuario',    # usuário do banco de dados
+            password='sua_senha'   # senha do banco de dados
+        )
+        if connection.is_connected():
+            print("Conexão com o banco de dados foi bem-sucedida!")
+            return connection
+    except Error as e:
+        print(f"Erro ao conectar no MySQL: {e}")
+        return None
+
+def login(cpf, senha):
+    """Valida o login do usuário com CPF e senha fornecidos."""
+    connection = conectar()
+    if connection is None:
+        return "Erro na conexão com o banco de dados"
+    
+    try:
+        cursor = connection.cursor(dictionary=True)
+        
+        # Consulta para verificar o CPF e a senha
+        query = "SELECT * FROM usuario WHERE cpf = %s AND senha = %s"
+        cursor.execute(query, (cpf, senha))
+        
+        # Verifica se encontrou um usuário
+        usuario = cursor.fetchone()
+        
+        if usuario:
+            return f"Bem-vindo, {usuario['nome']}!"
+        else:
+            return "CPF ou senha inválidos!"
+    
+    except Error as e:
+        print(f"Erro ao realizar consulta no banco de dados: {e}")
+        return "Erro na consulta"
+    
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
+# Exemplo de uso da função de login
+cpf = input("Digite o CPF: ")
+senha = input("Digite a senha: ")
+
+resultado = login(cpf, senha)
+print(resultado)

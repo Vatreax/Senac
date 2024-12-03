@@ -1,0 +1,78 @@
+import mysql.connector
+from mysql.connector import Error
+
+def conectar():
+    """Conecta ao banco de dados MySQL."""
+    try:
+        connection = mysql.connector.connect(
+            host='localhost',      # ou o host do seu banco de dados
+            database='biblioteca', # nome do banco de dados
+            user='seu_usuario',    # usuário do banco de dados
+            password='sua_senha'   # senha do banco de dados
+        )
+        if connection.is_connected():
+            print("Conexão com o banco de dados foi bem-sucedida!")
+            return connection
+    except Error as e:
+        print(f"Erro ao conectar no MySQL: {e}")
+        return None
+
+def emprestar_livro(id_usuario, id_livro):
+    """Realiza o empréstimo de um livro para o usuário se ele não tiver 3 livros emprestados."""
+    connection = conectar()
+    if connection is None:
+        return "Erro na conexão com o banco de dados"
+    
+    try:
+        cursor = connection.cursor(dictionary=True)
+
+        # Verifica se o livro está disponível
+        cursor.execute("SELECT status FROM livro WHERE id_livro = %s", (id_livro,))
+        livro = cursor.fetchone()
+        
+        if livro and livro['status'] == 'Disponivel':
+            # Verifica se o usuário já tem 3 empréstimos
+            cursor.execute("""
+                SELECT COUNT(*) AS qtd_emprestimos
+                FROM emprestimo
+                WHERE id_usuario = %s AND id_livro IS NULL
+            """, (id_usuario,))
+            resultado = cursor.fetchone()
+            
+            if resultado['qtd_emprestimos'] < 3:
+                # Registra o empréstimo
+                cursor.execute("""
+                    INSERT INTO emprestimo (id_livro, id_usuario)
+                    VALUES (%s, %s)
+                """, (id_livro, id_usuario))
+                
+                # Atualiza o status do livro para 'Indisponivel'
+                cursor.execute("""
+                    UPDATE livro
+                    SET status = 'Indisponivel', usuario = %s
+                    WHERE id_livro = %s
+                """, (id_usuario, id_livro))
+                
+                # Confirma as mudanças no banco
+                connection.commit()
+                return "Empréstimo realizado com sucesso!"
+            else:
+                return "Você já tem 3 livros emprestados. Não é possível pegar mais."
+        else:
+            return "Este livro não está disponível para empréstimo."
+    
+    except Error as e:
+        print(f"Erro ao realizar consulta no banco de dados: {e}")
+        return "Erro ao realizar o empréstimo."
+    
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
+# Exemplo de uso da função de empréstimo
+id_usuario = int(input("Digite o ID do usuário: "))
+id_livro = int(input("Digite o ID do livro: "))
+
+resultado = emprestar_livro(id_usuario, id_livro)
+print(resultado)

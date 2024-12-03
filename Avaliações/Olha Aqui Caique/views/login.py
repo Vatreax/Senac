@@ -2,6 +2,8 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 
+from views.menu import Menu
+
 
 
 ui_file = "Avaliações/Olha Aqui Caique/views/senha.ui"
@@ -27,4 +29,5 @@ class Login_MainWindow(QMainWindow):
 Nome: {nome}
 Senha: {senha}
 """)
+        
         

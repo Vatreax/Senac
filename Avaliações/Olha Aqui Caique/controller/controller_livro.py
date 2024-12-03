@@ -10,7 +10,7 @@ class Controller_Livro:
       db = Database("10.28.2.39","suporte","suporte","biblioteca")
       db.conectar()
       
-      livros = Livro()
+      livros = Livro(informacoesLivro['autor'], informacoesLivro['titulo'], informacoesLivro['cod_livro'])
 
       db.cursor.execute(livros.create())
       db.conexao.commit()
