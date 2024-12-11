@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="post" action="index.php" style="width: 15%;">
+        <fieldset id="pessoal">
+            <legend>Dados Pessoais</legend>
+            <p>Nome: <input type="text" name="nome" id="name" size="20" maxlength="20" placeholder="Não Atendido"></p>
+        </fieldset>    
+
+        <b>O que tu é?</b><br>
+        <input type="Radio" name="genero[]" value="machocado">homi
+        <input type="Radio" name="genero[]" value="cuié">muié
+        <input type="Radio" name="genero[]" value="la ele">la ele <br>
+        
+
+
+
+        <b>Qual o Melhor Professor?</b><br>
+
+        <input type="checkbox" id="ederson" name="prof[]" value="ederson" checked />
+
+        <label for="ederson">ederson</label>
+
+        <input type="checkbox" id="horns" name="prof[]" value="Ederson da Costa" checked/>
+
+        <label for="Ederson Costa">Ederson Costa</label>
+        <input type="submit" value="Enviar" style="margin-top: 10px; margin-bottom: 10px;">
+    </form>
+</body>
+</html>

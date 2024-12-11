@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="PHP\index.php" style="width: 15%;">
+
+        <fieldset class="pessoa" id="pessoal">
+            <legend>Dados Pessoais</legend>
+            <p>Nome</p><input type="text" name="nome" size="20" maxlength="20" placeholder="Não Atendido">
+            <p>RG</p><input type="text" name="Rg" size="20" maxlength="20" placeholder="12.345.678-9">
+            <p>CPF</p><input type="text" name="CPF" size="20" maxlength="20" placeholder="123.456.789-10">
+            <p>Enderço</p><input type="text" name="Endereco" size="20" maxlength="20" placeholder="Rua Exemplo, 1234">
+            <p>Idade</p><input type="number" name="Ano" size="3" maxlength="3" placeholder="">
+
+        </fieldset>
+
+        <fieldset class="ano">
+            <legend>Data</legend>
+            <input type="date" name="data">
+        </fieldset>
+
+        <fieldset class="epoca" id="tempo">
+        <legend>Época do Ano Favorita</legend>
+        <input type="checkbox" name="epoca[]" value="Primavera">Primavera<br>
+        <input type="checkbox" name="epoca[]" value="Verão">Verão<br>
+        <input type="checkbox" name="epoca[]" value="Outono">Outono<br>
+        <input type="checkbox" name="epoca[]" value="Inverno">Inverno<br>
+        </fieldset>
+
+
+
+        <fieldset class="menino_menina" id="Sexo">
+        <legend>Sexo</legend>
+            <input type="radio" id="masculino" name="genero" value="Masculino" checked />
+            <label for="masculino">Masculino</label>
+            <input type="radio" id="horns" name="genero" value="Feminino" checked/>
+            <label for="feminino">Feminino</label>
+        </fieldset>
+        
+        <fieldset class="cor" id="cor">
+            <legend>Cor Favorita</legend>
+            <input type="color" name="color">
+        </fieldset>
+        <fieldset>
+            <legend>Perguntas</legend>
+            <p>Com quantos Anões se troca uma lampada?</p>       
+            <input type="number" name="pequeno">
+
+            <p>Qual a cor do Seu carro?</p>
+            <input type="color" name="carro">
+            
+            <p>Em qual continente Você mora?</p>
+            <input type="checkbox" name="etnia[]" value="asiatico">Asia<br>
+            <input type="checkbox" name="etnia[]" value="europeu">Europa<br>
+            <input type="checkbox" name="etnia[]" value="america">America<br>
+            <input type="checkbox" name="etnia[]" value="africa">Africa<br>
+            <input type="checkbox" name="etnia[]" value="oceania">Oceânia<br>
+
+            <p>Com qual frequência Você faz exercícios fisícos</p>
+            <input type="radio" name="exercio" value="diariamente">Diariamente<br>
+            <input type="radio" name="exercio" value="semanal">Algumas vezes por semana<br>
+            <input type="radio" name="exercio" value="raro">Raramente<br>
+            <input type="radio" name="exercio" value="nunca">Nunca<br>
+        
+            <p>Prato Favorito</p>
+            <input type="text" name="prato" placeholder="pizza?">
+        </fieldset>
+        <input type="submit" value="Enviar" style="margin-top: 10px; margin-bottom: 10px;">
+        
+    </form>
+</body>
+</html>
