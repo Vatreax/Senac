@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro jS</title>
+</head>
+<body>
+    <style>
+        .accordion{
+            background-color: aqua;
+            padding: 20px 40px;
+            border: solid 1px #c6c6c6;
+            border-radius: 24px;
+        }
+
+        .accordion button{
+            background-color: none;
+            border: none;
+            width: 100%;
+            text-align: start;
+            cursor: pointer;
+        }
+
+        .accordion div{
+            height: 0;
+            overflow: hidden;
+        }
+
+        .accordion div.ativo{
+            height: max-content;
+        }
+    </style>
+
+    <div class="accordion">
+        <button>O que é JavaScript</button>
+        <div>É uma linguagem de programação que é executada pelos navegadores</div>
+    </div>
+    <!-- <input type="text" id="inputado">
+    <button id="butado">Aperte Aqui</button> -->
+    <script>
+        // class Pessoa{
+        //     constructor(nome,idade){
+        //         this.name = name
+        //         this.idade = idade
+        //     }
+        // };
+
+        // const soma = (n1, n2) => (num1 % 2) === 0 || (num2 % 2) === 0 ? "Par" : "Impar"
+
+        // let btn = action.getElementById("butado").Click();
+        // btn.addEventListener(function tipo(){
+        //     let info = document.getElementById("inputado")
+        //     console.log(typeof info)
+        // });
+
+       let button = document.querySelector("button");
+       let div = document.querySelector(".accordion div"); 
+
+       button.addEventListener("click", function(){
+            div.classList.toggle("ativo")
+       });
+
+    </script>
+</body>
+</html>
