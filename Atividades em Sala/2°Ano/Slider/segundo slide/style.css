@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Container do Slider */
+.slider {
+    position: relative;
+    width: 80%;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #333;
+}
+
+/* Definindo a estrutura das imagens/banners */
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    list-style: none;
+    width: 100%;
+    height: 300px; /* Altura do painel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Estilo do banner de texto */
+.banner {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Transparência do fundo */
+    border-radius: 10px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.banner h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2em;
+}
+
+/* Escondendo os banners que não estão ativos */
+input[type="radio"] {
+    display: none;
+}
+
+/* Quando o slide 1 está selecionado */
+input#slide1:checked ~ .slides li:nth-child(1) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Quando o slide 2 está selecionado */
+input#slide2:checked ~ .slides li:nth-child(2) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Quando o slide 3 está selecionado */
+input#slide3:checked ~ .slides li:nth-child(3) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Quando o slide 4 está selecionado */
+input#slide4:checked ~ .slides li:nth-child(4) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilo do controle de navegação (os pontos) */
+.navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.navigation label {
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Estilo para o botão ativo */
+input#slide1:checked ~ .navigation label:nth-child(1),
+input#slide2:checked ~ .navigation label:nth-child(2),
+input#slide3:checked ~ .navigation label:nth-child(3),
+input#slide4:checked ~ .navigation label:nth-child(4) {
+    background-color: #FF6347; /* Cor do botão ativo */
+}
