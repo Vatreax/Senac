@@ -41,15 +41,15 @@
     width: 10px;
     z-index: 10;
     border-radius: 50%;
-    margin: 0 5px;  /* Espaçamento entre os botões */
+    margin: 0 5px;
     transition: background-color 0.3s ease;
 }
 
 .slider .navigation {
     position: absolute;
-    bottom: 10px;  /* Posiciona os botões abaixo da imagem */
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%);  /* Centraliza os botões horizontalmente */
+    transform: translateX(-50%); 
     display: flex;
 }
 
@@ -69,17 +69,16 @@
     background-color: white;
 }
 
-/* Aplica visibilidade quando o botão de rádio correspondente for selecionado */
+
 .slider li input:checked ~ img {
     opacity: 1;
     visibility: visible;
 }
 
 .slider li input:checked ~ .navigation label {
-    background-color: #FF6347;  /* Cor do botão ativo (ex: laranja) */
+    background-color: #FF6347;  
 }
 
-/* Transições de opacidade e visibilidade das imagens */
 .slider img {
     opacity: 0;
     visibility: hidden;

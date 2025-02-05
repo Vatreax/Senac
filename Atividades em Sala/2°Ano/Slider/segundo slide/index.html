@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider de Banners</title>
+    <title>Slider Manual</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="slider">
-        <ul class="slides">
-            <li class="slide">
-                <input type="radio" id="slide1" class="btn-slide" name="slide" checked>
-                <label for="slide1"></label>
-                <div class="banner">
-                    <h2>Promoção de Verão!</h2>
-                    <p>Descontos imperdíveis em toda a loja.</p>
-                </div>
-            </li>
-            <li class="slide">
-                <input type="radio" id="slide2" class="btn-slide" name="slide">
-                <label for="slide2"></label>
-                <div class="banner">
-                    <h2>Novidades de Outono</h2>
-                    <p>Confira a nova coleção de outono agora mesmo.</p>
-                </div>
-            </li>
-            <li class="slide">
-                <input type="radio" id="slide3" class="btn-slide" name="slide">
-                <label for="slide3"></label>
-                <div class="banner">
-                    <h2>Produtos Exclusivos</h2>
-                    <p>Somente para nossos clientes especiais.</p>
-                </div>
-            </li>
-            <li class="slide">
-                <input type="radio" id="slide4" class="btn-slide" name="slide">
-                <label for="slide4"></label>
-                <div class="banner">
-                    <h2>Super Ofertas de Natal</h2>
-                    <p>Chegou a hora de renovar seus itens favoritos.</p>
-                </div>
-            </li>
-        </ul>
-        <div class="navigation">
+    <ul class="slider">
+        <li>  
+            <input type="radio" id="slide1" class="btn-slide" name="slide" checked>
             <label for="slide1"></label>
+            <div class="banner" style="background: linear-gradient(to bottom, #ff7e5f, #feb47b);">
+                <div>
+                    <h1>Banner 1</h1>
+                    <p>Texto do primeiro banner.</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="slide2" class="btn-slide" name="slide">
             <label for="slide2"></label>
+            <div class="banner" style="background: linear-gradient(to bottom, #6a11cb, #2575fc);">
+                <div>
+                    <h1>Banner 2</h1>
+                    <p>Texto do segundo banner.</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="slide3" class="btn-slide" name="slide">
             <label for="slide3"></label>
+            <div class="banner" style="background: linear-gradient(to bottom, #ff6347, #f8b500);">
+                <div>
+                    <h1>Banner 3</h1>
+                    <p>Texto do terceiro banner.</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="slide4" class="btn-slide" name="slide">
             <label for="slide4"></label>
-        </div>
-    </div>
+            <div class="banner" style="background: linear-gradient(to bottom, #56ccf2, #2f80ed);">
+                <div>
+                    <h1>Banner 4</h1>
+                    <p>Texto do quarto banner.</p>
+                </div>
+            </div>
+        </li>
+    </ul>
     <script src="script.js"></script>
 </body>
 </html>
