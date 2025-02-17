@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+</head>
+
+<body>
+    <div id="carrinho">
+        <form name="formCarrinho">
+            <div class="containerInput">
+                <label for="cep">Cep:</label>
+                <input type="text" id="cep" name="cep" placeholder="79000-000" maxlength="10" required>
+            </div>
+            <div class="containerInput">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" placeholder="estado" required>
+            </div>
+            <div class="containerInput">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" placeholder="cidade" required>
+            </div>
+            <div class="containerInput">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" placeholder="logradouro" required>
+            </div>
+            <div class="ctaForm">
+                <button type="submit">Comprar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const formCarrinho = document.forms['formCarrinho'];
+
+        // Função para validar o CEP (8 dígitos)
+        const validarCep = (cep) => {
+            const regex = /^\d{5}-\d{3}$/;  // Valida o formato do CEP "XXXXX-XXX"
+            return regex.test(cep);
+        };
+
+        // Função para preencher o endereço com base no CEP
+        const buscarEnderecoPorCep = async (cep) => {
+            if (!validarCep(cep)) {
+                alert("CEP inválido! O formato correto é XXXXX-XXX.");
+                return;
+            }
+
+            const response = await fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`);
+            const dadosCep = await response.json();
+
+            if (dadosCep.erro) {
+                alert("CEP não encontrado.");
+                return;
+            }
+
+            // Preenchendo os campos com os dados recebidos
+            formCarrinho.estado.value = dadosCep.estado;
+            formCarrinho.cidade.value = dadosCep.localidade;
+            formCarrinho.logradouro.value = dadosCep.logradouro;
+        };
+
+        // Função para buscar o CEP baseado no estado, cidade e logradouro
+        const buscarCepPorEndereco = async () => {
+            const estado = formCarrinho.estado.value;
+            const cidade = formCarrinho.cidade.value;
+            const logradouro = formCarrinho.logradouro.value;
+
+            // Validação básica de entrada (pelo menos 3 caracteres para cidade e logradouro)
+            if (cidade.length < 3 || logradouro.length < 3) {
+                alert("Cidade e logradouro devem ter pelo menos 3 caracteres.");
+                return;
+            }
+
+            const response = await fetch(`https://viacep.com.br/ws/${estado}/${cidade}/${logradouro}/json/`);
+            const dadosEndereco = await response.json();
+
+            if (dadosEndereco && dadosEndereco.length > 0) {
+                const cepEncontrado = dadosEndereco[0].cep;
+                formCarrinho.cep.value = cepEncontrado;
+            } else {
+                alert("Endereço não encontrado.");
+            }
+        };
+
+        // Evento de mudança no campo CEP
+        formCarrinho.cep.addEventListener('change', (event) => {
+            const cep = event.target.value;
+            if (validarCep(cep)) {
+                buscarEnderecoPorCep(cep);
+            }
+        });
+
+        // Evento de mudança nos campos de estado, cidade ou logradouro
+        formCarrinho.estado.addEventListener('change', buscarCepPorEndereco);
+        formCarrinho.cidade.addEventListener('change', buscarCepPorEndereco);
+        formCarrinho.logradouro.addEventListener('change', buscarCepPorEndereco);
+
+    </script>
+</body>
+
+</html>
