@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="./index.php" method="post">
+        <fieldset><legend>Dados Pessoais</legend>
+            <label for="nome">Nome</label><br>
+            <input type="text" name="nome" required><br>
+
+            <label for="data">Data de Nascimento</label><br>
+            <input type="date" name="data" required><br>
+
+            <label for="idade">Idade</label><br>
+            <input type="text" name="idade" required><br>
+
+ 
+
+            <h2>Sexo</h2>
+            <input type="radio" name="sexo" value="Masculino" checked />
+            <label for="masculino">Masculino</label>
+            <input type="radio" name="sexo" value="Feminino" checked/>
+            <label for="feminino">Feminino</label>
+        </fieldset>
+
+        <fieldset><legend>Login</legend>
+           <label for="email">Email</label>
+            <input type="text" name="email" required>
+
+            <label for="senha">Senha</label>
+            <input type="text" name="senha" required>
+
+            <label for="confirm-senha">Confirmar Senha</label>
+            <input type="text" name="confirm-senha" required>
+        </fieldset>
+    
+        <fieldset><legend>Dados Complementares</legend>
+            <label for="cpf">CPF</label><br>
+            <input type="text" name="cpf" required><br>
+
+            <label for="rg">RG</label><br>
+            <input type="text" name="rg" required><br>
+
+
+            <label for="cidade">Cidade</label><br>
+            <input type="text" name="cidade" required><br>
+
+            <label for="estado">Estado</label><br>
+            <input type="text" name="estado" required><br>
+
+            <label for="celular">Celular</label><br>
+            <input type="text" name="celular" required><br>
+
+            <label for="termos">Aceito todos os Termos</label>
+            <input type="checkbox" name="termos" required><br>
+        </fieldset>
+
+
+        <button type="submit" class="enviar">Enviar</button>
+    </form>
+</body>
+</html>
