@@ -49,6 +49,17 @@
             <h1>Celular:</h1>
             <p><?php echo ($_POST["celular"]) ?></p>
         </fieldset>
+        <fieldset>
+            <legend>Dados Complementares</legend>
+            <?php
+
+            foreach ($_POST as $value) {
+                echo "<p>$value</p>";
+            }
+
+            ?>
+        </fieldset>
+        
     </div>
 </body>
 </html>
