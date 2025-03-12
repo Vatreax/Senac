@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
-} 
+}
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -56,8 +56,9 @@ class _UserProfileState extends State<UserProfile> {
               Container(
                 width: 150,
                 height: 150,
+                child: Image.asset('../images/galosniper.webp'),  
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
               ),
-
               Text(
                 '${userNames[currentIndex]}',
                 style: TextStyle(
@@ -90,11 +91,3 @@ class _UserProfileState extends State<UserProfile> {
 }
 
 
-
-// Explicação:
-// Lista de Nomes: A variável userNames contém uma lista de nomes que o usuário pode ter.
-// Índice do Nome Atual: A variável currentIndex mantém o índice do nome atual da lista.
-// Alteração do Nome: A função _changeUserName altera o índice do nome atual. Quando o índice chega ao final da lista, ele volta para o início usando a operação % userNames.length (módulo).
-// Exibição do Nome: O nome exibido na tela é o nome no índice atual da lista.
-// Resultado:
-// Cada vez que você clica no botão, o nome do usuário vai mudar para o próximo nome na lista. Quando chega ao último nome, ele volta para o primeiro nome da lista, criando um ciclo.

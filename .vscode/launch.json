@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cliente",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\cliente",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "cliente (profile mode)",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\cliente",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "cliente (release mode)",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\cliente",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "projeto",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\projeto",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "projeto (profile mode)",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\projeto",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "projeto (release mode)",
+            "cwd": "Atividades em Sala\\2°Ano\\Flutter\\projeto",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
