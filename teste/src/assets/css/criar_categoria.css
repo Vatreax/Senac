@@ -29,14 +29,15 @@ body {
 
 .container-geral{
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr; 
+    grid-template-rows: 50px 500px;
     margin-left: 5%;
     column-gap: 10%;
     margin-bottom: 10%;
-    width: fit-content;
+    width: 90%;  
+    height: 100vh; 
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: start;
 }
 
 .menu-container {
@@ -67,11 +68,11 @@ body {
     white-space: nowrap;
 }
 
-.create{
+.container-content{
     grid-column: 2;
 }
 
-.create h1{
+.container-content h1{
     font-weight: 500;
     font-size: 30px;
 }
@@ -80,21 +81,24 @@ body {
     grid-column: 2;
     grid-row: 2;
     display: grid;
-    grid-template-columns: 19% 52% auto;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     column-gap: 5%;
-    width: 800px;
-    height: auto; 
+    row-gap: 10%;
+    width: 700px;
+    height: 200px; 
     border: 1px solid #ccc;
     padding: 15px 15px;
     background: white;
     border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .container-create img {
+    margin-top: 10%;
     grid-column: 1;
     grid-row: span 2;
-    width: 150px;
+    width: 180px;
     height: auto;
 }
 
@@ -141,11 +145,10 @@ body {
 .confirm {
     grid-column: 3;
     grid-row: 2;
-    display: flex;
     width: 100px;
     height: 30px;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
     gap: 10px;
     flex-shrink: 0;
     border-radius: 4px;
@@ -153,6 +156,7 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+    margin-top: 40%;
 }
 
 
@@ -174,7 +178,8 @@ label[for="insert"] {
 @media (max-width: 1440px) {
 
     .container-geral {
-        margin-bottom: 15%
+        margin-bottom: 15%;
+        column-gap: 5%;
     }
 
     .menu-container h1, a {
@@ -185,16 +190,21 @@ label[for="insert"] {
         font-size: 25px;
     }
 
-    .container-create {
-        row-gap: 5%;
+
+    .container-content h1{
+        font-size: 25px;
     }
 
-    .container-create img {
-        width: 120px;
-    }
-
-    .input_label {
+    .input_label, .insert_img {
         font-size: 15px;
+    }
+
+    .input_label input{
+        width: 300px;
+    }
+
+    label[for="insert"] {
+        font-size: 12px;
     }
 }
 
