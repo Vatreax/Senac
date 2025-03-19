@@ -62,9 +62,6 @@
     font-size: 16px;
 }
 
-.form-group {
-    width: 420px;
-}
 
 .form-container label {
     font-size: 16px;
@@ -104,6 +101,7 @@
     flex-direction: column;
     gap: 10px;
     width: max-content;
+    margin-left: 15%;
 }
 
 .checkbox-container {
@@ -164,6 +162,7 @@
     width: 113px;
     height: 39px;
     padding: 5px 20px;
+    border-radius: 5px;
 }
 
 .buttons-container .button-confirm {
@@ -173,6 +172,12 @@
     width: 113px;
     height: 39px;
     padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.content {
+    width: 50%;
+    margin: 0 auto;
 }
 
 @media (max-width: 1445px) {
@@ -210,11 +215,21 @@
     }
 }
 
+@media (max-width: 1090px) {
+    .register_client {
+        margin-left: 6%;
+    }
+}
+
 @media (max-width: 992px) {
     .register_client {
         width: 85%;
         height: 1120px;
         margin-left: 8%;
+    }
+
+    #pessoal {
+        height: 60%;
     }
 
     .register_client h2 {
@@ -418,4 +433,5 @@
         height: 30px;
         font-size: 10px;
     }
+
 }
